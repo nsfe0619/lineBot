@@ -12,7 +12,7 @@ request('https://api.avgle.com/v1/categories',function(error,response,body){
 	console.log('error',error);
 	console.log('statusCode',response && resopnse.statusCode);
 	console.log('body:',body);
-})
+});
 
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
