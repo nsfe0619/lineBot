@@ -1,7 +1,13 @@
+
 var linebot = require('linebot');
 var express = require('express');
-var request = require('request');
 
+var request = require('request');
+request('http://www.google.com', function (error, response, body) {
+  console.log('error:', error); // Print the error if one occurred
+  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+  console.log('body:', body); // Print the HTML for the Google homepage.
+});
 var bot = linebot({
   channelId: 1565375319,
   channelSecret: 'bc407d7bba57dc515d022928cc361429',
