@@ -10,12 +10,12 @@ request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, b
 	var $=cheerio.load(body);
 	var beautyArr=[];
 	$('.r-ent .title a').each(function(i,elem){
-		beautyArr.push($('.r-ent .title a').href);
+		beautyArr.push($('.r-ent .title a'));
 	})
-	console.log(beautyArr);
   console.log('error:', error); // Print the error if one occurred
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  console.log('body:', body); // Print the HTML for the Google homepage.
+  //console.log('body:', body); // Print the HTML for the Google homepage.
+	console.log(beautyArr);
 });
 var bot = linebot({
   channelId: 1565375319,
