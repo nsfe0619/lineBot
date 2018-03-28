@@ -30,3 +30,23 @@ var server = app.listen(process.env.PORT || 8080, function() {
   console.log("App now running on port", port);
 });
 
+function _japan() {
+  clearTimeout(timer2);
+  request({
+    url: "http://rate.bot.com.tw/Pages/Static/UIP003.zh-TW.htm",
+    method: "GET"
+  }, function(error, response, body) {
+    if (error || !body) {
+      return;
+    } else {
+      var $ = cheerio.load(body);
+      var target = $(".rate-content-sight.text-right.print_hide");
+      console.log(target[15].children[0].data);
+      jp = target[15].children[0].data;
+      if (jp < 0.28) {
+        bot.push('使用者 ID', '現在日幣 ' + jp + '，該買啦！');
+      }
+      timer2 = setInterval(_japan, 120000);
+    }
+  });
+}
