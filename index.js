@@ -3,7 +3,7 @@ var linebot = require('linebot');
 var express = require('express');
 
 var request = require('request');
-request('https://api.avgle.com/v1/categories', function (error, response, body) {
+request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, body) {
   console.log('error:', error); // Print the error if one occurred
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
   console.log('body:', body); // Print the HTML for the Google homepage.
