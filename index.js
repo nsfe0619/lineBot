@@ -10,7 +10,7 @@ request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, b
 	var $=cheerio.load(body);
 	var beautyArr=[];
 	$('.r-ent .title a').each(function(i,elem){
-		beautyArr.push($('.r-ent .title a').attr('href'));
+		beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 	})
   console.log('error:', error); // Print the error if one occurred
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
