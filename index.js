@@ -1,6 +1,8 @@
 
 var linebot = require('linebot');
 var express = require('express');
+var cheerio = require('cheerio');
+
 
 var request = require('request');
 request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, body) {
