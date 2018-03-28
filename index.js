@@ -7,7 +7,6 @@ var bot = linebot({
   channelAccessToken: 'PUNfMYWJC2ARrSsLOfdxmmer7GCouKmb9LOwCe/KpBMbgjkWEGicxv7DzD38dL0dxzWFpjE3nk3XpyJ6qhrjvljczlO+7wpTq7oKjZTGUQAqiyuzac7vyXi7yK/7mbcaP/iewDMZJQwARRuNllrY7QdB04t89/1O/w1cDnyilFU='
 });
 
-var request=require('request');
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
     var msg = event.message.text;
