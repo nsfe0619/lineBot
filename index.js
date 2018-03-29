@@ -19,11 +19,11 @@ request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, b
 	console.log(getImages(beautyArr[0]));
 });
 
-function getImages(post, callback) {
+function getImages(post) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
     var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
     images = [ ...new Set(images) ]
-    callback(images);
+    return images;
   })
 }
 var bot = linebot({
