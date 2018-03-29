@@ -42,16 +42,9 @@ bot.on('message', function(event) {
 		    "originalContentUrl": "https://"+img+".jpg",
 		    "previewImageUrl": "https://"+img+".jpg"
 		}
-	    event.reply(imagesBack).then(function(data) {
+	    event.reply(imagesBack,url).then(function(data) {
 	      // success 
 	      console.log(imagesBack);
-	    }).catch(function(error) {
-	      // error 
-	      console.log('error');
-	    });
-	    event.reply('https://www.ptt.cc'+url).then(function(data) {
-	      // success 
-	      console.log(url);
 	    }).catch(function(error) {
 	      // error 
 	      console.log('error');
