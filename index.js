@@ -29,10 +29,10 @@ function getImages(post) {
   	var $=cheerio.load(body);
 		//console.log('===================================')
 	//console.log('#main-container #main-content a',$('#main-container #main-content a'));
-	$('#main-container #main-content a').each(function(i,elem){
+	$('.embed-main-image').each(function(i,elem){
 		//console.log('===================================')
-		console.log('$(#main-container #main-content .richcontent).eq(i)',$('#main-container #main-content .richcontent').eq(i));
-		imgArr.push($('#main-container #main-content .richcontent').eq(i).attr('src'));
+		console.log('this',this);
+		imgArr.push(this.eq(i).attr('src'));
 	})
 	//console.log('imgArr',imgArr);
     //var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
