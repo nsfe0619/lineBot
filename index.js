@@ -27,6 +27,7 @@ function getImages(post) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
   	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
   	console.log('images',images);
+  });
 }
 var bot = linebot({
   channelId: 1565375319,
