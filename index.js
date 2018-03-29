@@ -6,7 +6,7 @@ var cheerio = require('cheerio');
 
 var request = require('request');
 var beautyArr=[];	
-request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, body) {
+request('https://www.ptt.cc/bbs/Beauty/index'+parseInt(2432*Math.random()+1)+'.html', function (error, response, body) {
 
 	var $=cheerio.load(body);
 	$('.r-ent .title a').each(function(i,elem){
@@ -19,13 +19,11 @@ function getImages(post,callback) {
 	console.log('post',post);
   request('https://www.ptt.cc' + post, (err, res, body) => {
   	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
-  	console.log('images',images);
   	var randomImgArr=images;
-  	console.log('randomImgArr',randomImgArr);
   	if(randomImgArr){
   	var tmpRandomImg=randomImgArr[0];
 
-  	callback(tmpRandomImg);
+  	callback(tmpRandomImg,post);
   	}
   });
 }
@@ -37,8 +35,8 @@ var bot = linebot({
 
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
-  	getImages(beautyArr[parseInt(beautyArr.length*Math.random())],function(img){
-  		console.log('img',img);
+  	getImages(beautyArr[parseInt(beautyArr.length*Math.random())],function(img,url){
+  		
 	    var imagesBack={
 		    "type": "image",
 		    "originalContentUrl": "https://"+img+".jpg",
@@ -47,6 +45,13 @@ bot.on('message', function(event) {
 	    event.reply(imagesBack).then(function(data) {
 	      // success 
 	      console.log(imagesBack);
+	    }).catch(function(error) {
+	      // error 
+	      console.log('error');
+	    });
+	    event.reply('https://www.ptt.cc'+url).then(function(data) {
+	      // success 
+	      console.log(url);
 	    }).catch(function(error) {
 	      // error 
 	      console.log('error');
