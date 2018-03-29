@@ -21,9 +21,9 @@ request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, b
 function getImages(post) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
   	console.log('body',body);
-    var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
-    console.log('images',images);
-    images = [ ...new Set(images) ]
+    //var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
+    //console.log('images',images);
+    //images = [ ...new Set(images) ]
     //callback(images);
   })
 }
@@ -35,6 +35,7 @@ var bot = linebot({
 
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
+  	console.log('beautyArr.size',beautyArr.size);
   	console.log('beautyArr[0]',beautyArr[0]);
   	console.log('getImages(beautyArr)',getImages(beautyArr[parseInt(beautyArr.size*Math.random())]));
     var msg = event.message.text;
