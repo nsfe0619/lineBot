@@ -33,7 +33,7 @@ var bot = linebot({
 
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
-  	var randomImg=getImages(beautyArr[parseInt(beautyArr.length*Math.random())]);
+  	var randomImg=getImages(beautyArr[parseInt(beautyArr.size*Math.random())]);
   	console.log('randomImg',randomImg);
     var msg = event.message.text;
     var imagesBack={
