@@ -25,22 +25,8 @@ request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, b
 var imgArr=[];	
 function getImages(post) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
-  	//console.log('body',body);
-  	var $=cheerio.load(body);
-		//console.log('===================================')
-	//console.log('#main-container #main-content a',$('#main-container #main-content a'));
-	console.log('$(.embed-main-image #img-tag)',$('.embed-main-image #img-tag'))
-	$('.embed-main-image #img-tag').each(function(i,elem){
-		//console.log('===================================')
-		console.log('this',this);
-		imgArr.push(this.eq(i).attr('src'));
-	})
-	//console.log('imgArr',imgArr);
-    //var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
-    //console.log('images',images);
-    //images = [ ...new Set(images) ]
-    //callback(images);
-  })
+  	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
+  	console.log('images',images);
 }
 var bot = linebot({
   channelId: 1565375319,
