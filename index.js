@@ -5,10 +5,10 @@ var cheerio = require('cheerio');
 
 
 var request = require('request');
+var beautyArr=[];	
 request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, body) {
 
 	var $=cheerio.load(body);
-	var beautyArr=[];
 	$('.r-ent .title a').each(function(i,elem){
 		beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 	})
