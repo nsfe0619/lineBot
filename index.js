@@ -23,7 +23,9 @@ function getImages(post) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
   	//console.log('body',body);
   	var $=cheerio.load(body);
+	console.log($('#img-tag'));
 	$('#img-tag').each(function(i,elem){
+		console.log($('#img-tag'));
 		imgArr.push($('#img-tag').eq(i).attr('src'));
 	})
 	console.log('imgArr',imgArr);
