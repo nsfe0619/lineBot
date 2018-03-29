@@ -5,6 +5,26 @@ var cheerio = require('cheerio');
 
 
 var request = require('request');
+request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, body) {
+
+	var $=cheerio.load(body);
+	var beautyArr=[];
+	$('.r-ent .title a').each(function(i,elem){
+		beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
+	})
+  console.log('error:', error); // Print the error if one occurred
+  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+  //console.log('body:', body); // Print the HTML for the Google homepage.
+	console.log(beautyArr);
+});
+
+function getImages(post, callback) {
+  request('https://www.ptt.cc' + post, (err, res, body) => {
+    var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
+    images = [ ...new Set(images) ]
+    callback(images);
+  })
+}
 var bot = linebot({
   channelId: 1565375319,
   channelSecret: 'c58ae1cb241fbac4858f26fef7c94a9c',
@@ -14,9 +34,14 @@ var bot = linebot({
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
     var msg = event.message.text;
-    event.reply(msg).then(function(data) {
+    var imagesBack={
+	    "type": "image",
+	    "originalContentUrl": "https://i.imgur.com/sEZhnP4.jpg",
+	    "previewImageUrl": "https://i.imgur.com/sEZhnP4.jpg"
+	}
+    event.reply(imagesBack).then(function(data) {
       // success 
-      console.log(msg);
+      console.log(imagesBack);
     }).catch(function(error) {
       // error 
       console.log('error');
