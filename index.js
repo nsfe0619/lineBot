@@ -20,7 +20,9 @@ function getImages(post) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
   	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
   	console.log('images',images);
-  	return images;
+  	var randomImgArr=images;
+  	var tmpRandomImg=randomImgArr[parseInt(randomImgArr.length*Math.random())];
+  	return tmpRandomImg;
   });
 }
 var bot = linebot({
@@ -31,13 +33,7 @@ var bot = linebot({
 
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
-  	console.log('beautyArr.length',beautyArr.length);
-  	console.log('beautyArr[0]',beautyArr[0]);
-  	//console.log('getImages(beautyArr)',getImages(beautyArr[parseInt(beautyArr.length*Math.random())]));
-  	var randomImgArr=[];
-  	randomImgArr=getImages(beautyArr[parseInt(beautyArr.length*Math.random())]);
-  	console.log('randomImgArr',randomImgArr);
-  	var randomImg='';
+  	var randomImg=getImages(beautyArr[parseInt(beautyArr.length*Math.random())]);
   	console.log('randomImg',randomImg);
     var msg = event.message.text;
     var imagesBack={
