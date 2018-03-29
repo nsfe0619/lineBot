@@ -31,7 +31,7 @@ function getImages(post) {
 	//console.log('#main-container #main-content a',$('#main-container #main-content a'));
 	$('#main-container #main-content a').each(function(i,elem){
 		//console.log('===================================')
-		//console.log('$(#main-container #main-content a).eq(i)',$('#main-container #main-content a').eq(i));
+		console.log('$(#main-container #main-content a).eq(i)',$('#main-container #main-content a').eq(i));
 		imgArr.push($('#main-container #main-content a').eq(i).attr('src'));
 	})
 	console.log('imgArr',imgArr);
