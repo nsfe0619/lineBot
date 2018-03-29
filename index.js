@@ -24,9 +24,6 @@ function getImages(post,callback) {
   	var tmpRandomImg=randomImgArr[0];
   	callback(tmpRandomImg);
   });
-
-  	console.log('tmpRandomImg',tmpRandomImg);
-  	return tmpRandomImg;
 }
 var bot = linebot({
   channelId: 1565375319,
