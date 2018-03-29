@@ -29,6 +29,7 @@ function getImages(post) {
   	var $=cheerio.load(body);
 		//console.log('===================================')
 	//console.log('#main-container #main-content a',$('#main-container #main-content a'));
+	console.log('$(.embed-main-image)',$('.embed-main-image'))
 	$('.embed-main-image').each(function(i,elem){
 		//console.log('===================================')
 		console.log('this',this);
