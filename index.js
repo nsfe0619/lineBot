@@ -20,6 +20,7 @@ request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, b
 
 function getImages(post) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
+  	console.log('body',body);
     var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
     console.log('images',images);
     images = [ ...new Set(images) ]
