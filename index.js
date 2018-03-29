@@ -35,8 +35,9 @@ var bot = linebot({
 });
 
 bot.on('message', function(event) {
-  if (event.message.type = 'text') {
     var msg = getImages(beautyArr[0]);
+    console.log('event.message',event.message);
+  if (event.message.type = 'text') {
     console.log('msg',msg);
     message = {
       type: "image",
