@@ -9,11 +9,11 @@ var beautyArr=[];
 request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, body) {
 
 	var $=cheerio.load(body);
-		console.log('===================================')
-		console.log('$(.r-ent .title a)',$('.r-ent .title a'));
+		//console.log('===================================')
+		//console.log('$(.r-ent .title a)',$('.r-ent .title a'));
 	$('.r-ent .title a').each(function(i,elem){
-		console.log('===================================')
-		console.log('$(.r-ent .title a).eq(i)',$('.r-ent .title a').eq(i));
+		//console.log('===================================')
+		//console.log('$(.r-ent .title a).eq(i)',$('.r-ent .title a').eq(i));
 		beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 	})
   //console.log('error:', error); // Print the error if one occurred
@@ -27,12 +27,12 @@ function getImages(post) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
   	//console.log('body',body);
   	var $=cheerio.load(body);
-		console.log('===================================')
-	console.log('#main-container #main-content a',$('#main-container #main-content a'));
+		//console.log('===================================')
+	//console.log('#main-container #main-content a',$('#main-container #main-content a'));
 	$('#main-container #main-content a').each(function(i,elem){
-		console.log('===================================')
-		console.log('$(#main-container #main-content a).eq(i)',$('#main-container #main-content a').eq(i));
-		imgArr.push($('#main-container #main-content a').eq(i));
+		//console.log('===================================')
+		//console.log('$(#main-container #main-content a).eq(i)',$('#main-container #main-content a').eq(i));
+		imgArr.push($('#main-container #main-content a').eq(i).attr('src'));
 	})
 	console.log('imgArr',imgArr);
     //var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
