@@ -37,12 +37,15 @@ bot.on('message', function(event) {
   if (event.message.type = 'text') {
   	getImages(beautyArr[parseInt(beautyArr.length*Math.random())],function(img,url){
   		
-	    var imagesBack={
+	    var imagesBack=[{
 		    "type": "image",
 		    "originalContentUrl": "https://"+img+".jpg",
 		    "previewImageUrl": "https://"+img+".jpg"
-		}
-	    event.reply(imagesBack,url).then(function(data) {
+		},{
+			"type": "text",
+			"text": "https://www.ptt.cc" + url
+		}]
+	    event.reply(imagesBack).then(function(data) {
 	      // success 
 	      console.log(imagesBack);
 	    }).catch(function(error) {
