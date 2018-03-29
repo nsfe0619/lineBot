@@ -22,7 +22,9 @@ request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, b
 function getImages(post) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
     var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
+    console.log('images',images);
     images = [ ...new Set(images) ]
+    console.log('images',images);
     return images;
   })
 }
@@ -35,9 +37,16 @@ var bot = linebot({
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
     var msg = getImages(beautyArr[0]);
-    event.reply(msg).then(function(data) {
+    console.log('msg',msg);
+    message = {
+      type: "image",
+      originalContentUrl: msg,
+      previewImageUrl: msg
+    }
+    console.log('images',images);
+    event.reply(message).then(function(data) {
       // success 
-      console.log(msg);
+      console.log(message);
     }).catch(function(error) {
       // error 
       console.log('error');
