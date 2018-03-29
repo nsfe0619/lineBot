@@ -27,7 +27,7 @@ function getImages(post) {
 	console.log('.richcontent .image-panel .image #img-tag',$('.richcontent .image-panel .image #img-tag'));
 	$('.richcontent .image-panel .image #img-tag').each(function(i,elem){
 		console.log('===================================')
-		console.log('$('.richcontent .image-panel .image #img-tag').eq(i)',$('.richcontent .image-panel .image #img-tag').eq(i));
+		console.log('$(.richcontent .image-panel .image #img-tag).eq(i)',$('.richcontent .image-panel .image #img-tag').eq(i));
 		imgArr.push($('.richcontent .image-panel .image #img-tag').eq(i));
 	})
 	console.log('imgArr',imgArr);
