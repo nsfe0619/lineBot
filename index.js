@@ -35,6 +35,18 @@ bot.on('message', function(event) {
   if (event.message.type = 'text') {
   	getImages(beautyArr[parseInt(beautyArr.length*Math.random())],function(img){
   		console.log('img',img);
+	    var imagesBack={
+		    "type": "image",
+		    "originalContentUrl": "https://"+img,
+		    "previewImageUrl": "https://"+img
+		}
+	    event.reply(imagesBack).then(function(data) {
+	      // success 
+	      console.log(imagesBack);
+	    }).catch(function(error) {
+	      // error 
+	      console.log('error');
+	    });
   	});
   	/*console.log('randomImg',randomImg);
     var msg = event.message.text;
