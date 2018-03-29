@@ -41,8 +41,8 @@ bot.on('message', function(event) {
   		console.log('img',img);
 	    var imagesBack={
 		    "type": "image",
-		    "originalContentUrl": "https://"+img,
-		    "previewImageUrl": "https://"+img
+		    "originalContentUrl": "https://"+img+".jpg",
+		    "previewImageUrl": "https://"+img+".jpg"
 		}
 	    event.reply(imagesBack).then(function(data) {
 	      // success 
