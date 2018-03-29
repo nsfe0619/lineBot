@@ -42,6 +42,9 @@ bot.on('message', function(event) {
 		    "type": "image",
 		    "originalContentUrl": "https://"+img+".jpg",
 		    "previewImageUrl": "https://"+img+".jpg"
+		},{
+			"type":"text",
+			"text":url
 		}]
 	    event.reply(imagesBack).then(function(data) {
 	      // success 
