@@ -35,16 +35,13 @@ var bot = linebot({
 
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
-  	if(event.message.text=='吼猴抽表特'){
+  	if(event,message.text=='吼猴抽表特'){
   	getImages(beautyArr[parseInt(beautyArr.length*Math.random())],function(img,url){
   		
 	    var imagesBack=[{
 		    "type": "image",
 		    "originalContentUrl": "https://"+img+".jpg",
 		    "previewImageUrl": "https://"+img+".jpg"
-		},{
-			"type":"text",
-			"text":url
 		}]
 	    event.reply(imagesBack).then(function(data) {
 	      // success 
