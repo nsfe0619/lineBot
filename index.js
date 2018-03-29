@@ -35,7 +35,9 @@ bot.on('message', function(event) {
   	console.log('beautyArr[0]',beautyArr[0]);
   	console.log('getImages(beautyArr)',);
   	var randomImgArr=getImages(beautyArr[parseInt(beautyArr.length*Math.random())]);
-  	var randomImg=randomImgArr[parseInt(randomImgArr.length*Math.random())];
+  	console.log('randomImgArr',randomImgArr);
+  	var randomImg=randomImgArr[0];
+  	console.log('randomImg',randomImg);
     var msg = event.message.text;
     var imagesBack={
 	    "type": "image",
