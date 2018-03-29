@@ -17,14 +17,16 @@ request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, b
 var imgArr=[];	
 function getImages(post) {
 	console.log('post',post);
+	var tmpRandomImg
   request('https://www.ptt.cc' + post, (err, res, body) => {
   	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
   	console.log('images',images);
   	var randomImgArr=images;
   	console.log('randomImgArr',randomImgArr);
-  	var tmpRandomImg=randomImgArr[0];
-  	return tmpRandomImg;
+  	tmpRandomImg=randomImgArr[0];
+  	console.log('tmpRandomImg',tmpRandomImg);
   });
+  	return tmpRandomImg;
 }
 var bot = linebot({
   channelId: 1565375319,
