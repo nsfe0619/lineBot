@@ -21,7 +21,7 @@ function getImages(post,callback) {
   	console.log('images',images);
   	var randomImgArr=images;
   	console.log('randomImgArr',randomImgArr);
-  	tmpRandomImg=randomImgArr[0];
+  	var tmpRandomImg=randomImgArr[0];
   	callback(tmpRandomImg);
   });
 
