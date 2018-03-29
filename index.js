@@ -23,8 +23,8 @@ function getImages(post) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
   	//console.log('body',body);
   	var $=cheerio.load(body);
-	$('.richcontent').each(function(i,elem){
-		imgArr.push($('a .image-panel .image .post').eq(i).attr('src'));
+	$('#img-tag').each(function(i,elem){
+		imgArr.push($('#img-tag').eq(i).attr('src'));
 	})
 	console.log('imgArr',imgArr);
     //var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
