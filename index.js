@@ -15,17 +15,17 @@ request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, b
 });
 
 var imgArr=[];	
-function getImages(post) {
-	console.log('post',post);
-	var tmpRandomImg
+function getImages(post,callback) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
   	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
   	console.log('images',images);
   	var randomImgArr=images;
   	console.log('randomImgArr',randomImgArr);
   	tmpRandomImg=randomImgArr[0];
-  	console.log('tmpRandomImg',tmpRandomImg);
+  	callback(tmpRandomImg);
   });
+
+  	console.log('tmpRandomImg',tmpRandomImg);
   	return tmpRandomImg;
 }
 var bot = linebot({
@@ -36,8 +36,10 @@ var bot = linebot({
 
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
-  	var randomImg=getImages(beautyArr[parseInt(beautyArr.length*Math.random())]);
-  	console.log('randomImg',randomImg);
+  	getImages(beautyArr[parseInt(beautyArr.length*Math.random())],function(img){
+  		console.log('img',img);
+  	});
+  	/*console.log('randomImg',randomImg);
     var msg = event.message.text;
     var imagesBack={
 	    "type": "image",
@@ -50,7 +52,7 @@ bot.on('message', function(event) {
     }).catch(function(error) {
       // error 
       console.log('error');
-    });
+    });*/
   }
 });
 
