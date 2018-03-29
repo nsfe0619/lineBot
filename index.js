@@ -21,7 +21,7 @@ function getImages(post) {
   	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
   	console.log('images',images);
   	var randomImgArr=images;
-  	var tmpRandomImg=randomImgArr[parseInt(randomImgArr.length*Math.random())];
+  	var tmpRandomImg=randomImgArr[parseInt(randomImgArr.size*Math.random())];
   	return tmpRandomImg;
   });
 }
@@ -33,7 +33,7 @@ var bot = linebot({
 
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
-  	var randomImg=getImages(beautyArr[parseInt(beautyArr.size*Math.random())]);
+  	var randomImg=getImages(beautyArr[parseInt(beautyArr.length*Math.random())]);
   	console.log('randomImg',randomImg);
     var msg = event.message.text;
     var imagesBack={
