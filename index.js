@@ -9,17 +9,9 @@ var beautyArr=[];
 request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, body) {
 
 	var $=cheerio.load(body);
-		//console.log('===================================')
-		//console.log('$(.r-ent .title a)',$('.r-ent .title a'));
 	$('.r-ent .title a').each(function(i,elem){
-		//console.log('===================================')
-		//console.log('$(.r-ent .title a).eq(i)',$('.r-ent .title a').eq(i));
 		beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 	})
-  //console.log('error:', error); // Print the error if one occurred
-  //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  //console.log('body:', body); // Print the HTML for the Google homepage.
-	//console.log(beautyArr);
 });
 
 var imgArr=[];	
@@ -28,6 +20,7 @@ function getImages(post) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
   	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
   	console.log('images',images);
+  	return images;
   });
 }
 var bot = linebot({
@@ -40,12 +33,14 @@ bot.on('message', function(event) {
   if (event.message.type = 'text') {
   	console.log('beautyArr.length',beautyArr.length);
   	console.log('beautyArr[0]',beautyArr[0]);
-  	console.log('getImages(beautyArr)',getImages(beautyArr[parseInt(beautyArr.length*Math.random())]));
+  	console.log('getImages(beautyArr)',);
+  	var randomImgArr=getImages(beautyArr[parseInt(beautyArr.length*Math.random())]);
+  	var randomImg=randomImgArr[parseInt(randomImgArr.length*Math.random())];
     var msg = event.message.text;
     var imagesBack={
 	    "type": "image",
-	    "originalContentUrl": "https://i.imgur.com/sEZhnP4.jpg",
-	    "previewImageUrl": "https://i.imgur.com/sEZhnP4.jpg"
+	    "originalContentUrl": "https://"+randomImg,
+	    "previewImageUrl": "https://"+randomImg
 	}
     event.reply(imagesBack).then(function(data) {
       // success 
