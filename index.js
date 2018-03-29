@@ -23,9 +23,12 @@ function getImages(post) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
   	//console.log('body',body);
   	var $=cheerio.load(body);
-	console.log('.image-panel .image #img-tag',$('.image-panel .image #img-tag'));
-	$('.image-panel .image #img-tag').each(function(i,elem){
-		imgArr.push($('.image-panel .image #img-tag').eq(i));
+		console.log('===================================')
+	console.log('.richcontent .image-panel .image #img-tag',$('.richcontent .image-panel .image #img-tag'));
+	$('.richcontent .image-panel .image #img-tag').each(function(i,elem){
+		console.log('===================================')
+		console.log('$('.richcontent .image-panel .image #img-tag').eq(i)',$('.richcontent .image-panel .image #img-tag').eq(i));
+		imgArr.push($('.richcontent .image-panel .image #img-tag').eq(i));
 	})
 	console.log('imgArr',imgArr);
     //var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
