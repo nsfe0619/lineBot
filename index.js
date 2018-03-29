@@ -34,7 +34,8 @@ bot.on('message', function(event) {
   	console.log('beautyArr.length',beautyArr.length);
   	console.log('beautyArr[0]',beautyArr[0]);
   	//console.log('getImages(beautyArr)',getImages(beautyArr[parseInt(beautyArr.length*Math.random())]));
-  	var randomImgArr=getImages(beautyArr[parseInt(beautyArr.length*Math.random())]);
+  	var randomImgArr=[];
+  	randomImgArr=getImages(beautyArr[parseInt(beautyArr.length*Math.random())]);
   	console.log('randomImgArr',randomImgArr);
   	var randomImg='';
   	console.log('randomImg',randomImg);
