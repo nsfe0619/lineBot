@@ -28,11 +28,11 @@ function getImages(post) {
   	//console.log('body',body);
   	var $=cheerio.load(body);
 		console.log('===================================')
-	console.log('.richcontent .image-panel .image #img-tag',$('.richcontent .image-panel .image #img-tag'));
-	$('.richcontent .image-panel .image #img-tag').each(function(i,elem){
+	console.log('#main-container #main-content a',$('#main-container #main-content a'));
+	$('#main-container #main-content a').each(function(i,elem){
 		console.log('===================================')
-		console.log('$(.richcontent .image-panel .image #img-tag).eq(i)',$('.richcontent .image-panel .image #img-tag').eq(i));
-		imgArr.push($('.richcontent .image-panel .image #img-tag').eq(i));
+		console.log('$(#main-container #main-content a).eq(i)',$('#main-container #main-content a').eq(i));
+		imgArr.push($('#main-container #main-content a').eq(i));
 	})
 	console.log('imgArr',imgArr);
     //var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
