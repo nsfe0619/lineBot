@@ -25,8 +25,8 @@ function getImages(post) {
   	var $=cheerio.load(body);
 	console.log($('#img-tag'));
 	$('#img-tag').each(function(i,elem){
-		console.log($('#img-tag'));
-		imgArr.push($('#img-tag').eq(i).attr('src'));
+		console.log('#img-tag',$('#img-tag'));
+		imgArr.push($('#img-tag').eq(i));
 	})
 	console.log('imgArr',imgArr);
     //var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
