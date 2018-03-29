@@ -43,7 +43,7 @@ bot.on('message', function(event) {
       originalContentUrl: msg,
       previewImageUrl: msg
     }
-    console.log('images',images);
+    console.log('message',message);
     event.reply(message).then(function(data) {
       // success 
       console.log(message);
