@@ -16,16 +16,13 @@ request('https://www.ptt.cc/bbs/Beauty/index.html', function (error, response, b
   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
   //console.log('body:', body); // Print the HTML for the Google homepage.
 	console.log(beautyArr);
-	console.log(getImages(beautyArr[0]));
 });
 
-function getImages(post) {
+function getImages(post, callback) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
     var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
-    console.log('images',images);
     images = [ ...new Set(images) ]
-    console.log('images',images);
-    return images;
+    callback(images);
   })
 }
 var bot = linebot({
@@ -35,19 +32,11 @@ var bot = linebot({
 });
 
 bot.on('message', function(event) {
-    var msg = getImages(beautyArr[0]);
-    console.log('event.message',event.message);
   if (event.message.type = 'text') {
-    console.log('msg',msg);
-    message = {
-      type: "image",
-      originalContentUrl: msg,
-      previewImageUrl: msg
-    }
-    console.log('message',message);
-    event.reply(message).then(function(data) {
+    var msg = event.message.text;
+    event.reply(msg).then(function(data) {
       // success 
-      console.log(message);
+      console.log(msg);
     }).catch(function(error) {
       // error 
       console.log('error');
