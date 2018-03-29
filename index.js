@@ -21,7 +21,8 @@ function getImages(post) {
   	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
   	console.log('images',images);
   	var randomImgArr=images;
-  	var tmpRandomImg=randomImgArr[parseInt(randomImgArr.size*Math.random())];
+  	console.log('randomImgArr',randomImgArr);
+  	var tmpRandomImg=randomImgArr[0];
   	return tmpRandomImg;
   });
 }
