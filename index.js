@@ -33,10 +33,10 @@ bot.on('message', function(event) {
   if (event.message.type = 'text') {
   	console.log('beautyArr.length',beautyArr.length);
   	console.log('beautyArr[0]',beautyArr[0]);
-  	console.log('getImages(beautyArr)',);
-  	var randomImgArr=getImages(beautyArr[parseInt(beautyArr.length*Math.random())]);
-  	console.log('randomImgArr',randomImgArr);
-  	var randomImg=randomImgArr[0];
+  	console.log('getImages(beautyArr)',getImages(beautyArr[parseInt(beautyArr.length*Math.random())]));
+  	//var randomImgArr=getImages(beautyArr[parseInt(beautyArr.length*Math.random())]);
+  	//console.log('randomImgArr',randomImgArr);
+  	var randomImg='';
   	console.log('randomImg',randomImg);
     var msg = event.message.text;
     var imagesBack={
