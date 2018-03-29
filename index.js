@@ -22,7 +22,7 @@ function getImages(post,callback) {
   	console.log('images',images);
   	var randomImgArr=images;
   	console.log('randomImgArr',randomImgArr);
-  	if(randomImgArr.length>0){
+  	if(randomImgArr){
   	var tmpRandomImg=randomImgArr[0];
 
   	callback(tmpRandomImg);
