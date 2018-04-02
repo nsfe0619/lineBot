@@ -5,17 +5,18 @@ var cheerio = require('cheerio');
 
 
 var request = require('request');
-var beautyArr=[];	
-request('https://www.ptt.cc/bbs/Beauty/index'+parseInt(1135*Math.random()+1300)+'.html', function (error, response, body) {
-
-	var $=cheerio.load(body);
-	$('.r-ent .title a').each(function(i,elem){
-		beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
-	})
-});
 
 var imgArr=[];	
-function getImages(post,callback) {
+function getImages(callback) {
+	var beautyArr=[];	
+	request('https://www.ptt.cc/bbs/Beauty/index'+parseInt(1135*Math.random()+1300)+'.html', function (error, response, body) {
+
+		var $=cheerio.load(body);
+		$('.r-ent .title a').each(function(i,elem){
+			beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
+		})
+	});
+	var post=parseInt(beautyArr.length*Math.random());
 	console.log('post',post);
   request('https://www.ptt.cc' + post, (err, res, body) => {
   	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
@@ -38,7 +39,7 @@ var bot = linebot({
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
   	if(event.message.text=='吼猴抽表特'){
-  	getImages(beautyArr[parseInt(beautyArr.length*Math.random())],function(img,url){
+  	getImages(function(img,url){
   		if(img){
 		    var imagesBack=[{
 			    "type": "image",
