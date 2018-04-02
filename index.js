@@ -6,7 +6,7 @@ var cheerio = require('cheerio');
 
 var request = require('request');
 var beautyArr=[];	
-request('https://www.ptt.cc/bbs/Beauty/index'+parseInt(2432*Math.random()+1)+'.html', function (error, response, body) {
+request('https://www.ptt.cc/bbs/Beauty/index'+parseInt(300*Math.random()+2135)+'.html', function (error, response, body) {
 
 	var $=cheerio.load(body);
 	$('.r-ent .title a').each(function(i,elem){
