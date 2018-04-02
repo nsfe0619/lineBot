@@ -6,7 +6,7 @@ var cheerio = require('cheerio');
 
 var request = require('request');
 var beautyArr=[];	
-request('https://www.ptt.cc/bbs/Beauty/index'+parseInt(300*Math.random()+2135)+'.html', function (error, response, body) {
+request('https://www.ptt.cc/bbs/Beauty/index'+parseInt(1135*Math.random()+1300)+'.html', function (error, response, body) {
 
 	var $=cheerio.load(body);
 	$('.r-ent .title a').each(function(i,elem){
@@ -56,9 +56,16 @@ bot.on('message', function(event) {
 		      console.log('error');
 		    });
 	    }else{
-	    	event.reply("沒抽到妹子QQ 請重抽").then(function(data) {
+		    var msg=[{
+				"type":"text",
+				"text":'沒抽到妹子QQ 請重抽'
+			},{
+				"type":"text",
+				"text":'https://www.ptt.cc'+url
+				}]
+	    	event.reply(msg).then(function(data) {
 		      // success 
-		      console.log(imagesBack);
+		      console.log(msg);
 		    }).catch(function(error) {
 		      // error 
 		      console.log('error');
