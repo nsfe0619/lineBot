@@ -21,9 +21,11 @@ function getImages(post,callback) {
   	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
   	var randomImgArr=images;
   	if(randomImgArr){
-  	var tmpRandomImg=randomImgArr[0];
+  	var tmpRandomImg=randomImgArr[parseInt(randomImgArr.length*Math.random())];
 
   	callback(tmpRandomImg,post);
+  	}else{
+  		callback(false,post);
   	}
   });
 }
@@ -37,22 +39,31 @@ bot.on('message', function(event) {
   if (event.message.type = 'text') {
   	if(event.message.text=='吼猴抽表特'){
   	getImages(beautyArr[parseInt(beautyArr.length*Math.random())],function(img,url){
-  		
-	    var imagesBack=[{
-		    "type": "image",
-		    "originalContentUrl": "https://"+img+".jpg",
-		    "previewImageUrl": "https://"+img+".jpg"
-		},{
-			"type":"text",
-			"text":'https://www.ptt.cc'+url
-			}]
-	    event.reply(imagesBack).then(function(data) {
-	      // success 
-	      console.log(imagesBack);
-	    }).catch(function(error) {
-	      // error 
-	      console.log('error');
-	    });
+  		if(img){
+		    var imagesBack=[{
+			    "type": "image",
+			    "originalContentUrl": "https://"+img+".jpg",
+			    "previewImageUrl": "https://"+img+".jpg"
+			},{
+				"type":"text",
+				"text":'https://www.ptt.cc'+url
+				}]
+		    event.reply(imagesBack).then(function(data) {
+		      // success 
+		      console.log(imagesBack);
+		    }).catch(function(error) {
+		      // error 
+		      console.log('error');
+		    });
+	    }else{
+	    	event.reply("沒抽到妹子QQ 請重抽").then(function(data) {
+		      // success 
+		      console.log(imagesBack);
+		    }).catch(function(error) {
+		      // error 
+		      console.log('error');
+		    });
+	    }
   	});
   	}
   	/*console.log('randomImg',randomImg);
