@@ -44,7 +44,7 @@ bot.on('message', function(event) {
 		    "previewImageUrl": "https://"+img+".jpg"
 		},{
 			"type":"text",
-			"text":"123"
+			"text":'https://www.ptt.cc'+url
 			}]
 	    event.reply(imagesBack).then(function(data) {
 	      // success 
