@@ -41,13 +41,15 @@ var gentlemanDogArr=[];
 function getGentlemanDogArr() {
 	request('https://xn--zqs261djkh.com/search-巨乳', function (error, response, body) {
 
+		var matcher = body.match(/xn--zqs261djkh.com/Gdog\/[0-9a-zA-Z]/g);
+		console.log('matcher',matcher);
 			//console.log('body',body);
 		var $=cheerio.load(body);
 
 		//console.log('TAO_01_down',$('.TAO_01_down'));
 		console.log('TAO_01_down',$('.TAO_01_down').length);
 		console.log('content',$('.TAO_01_down #content').length);
-		console.log('content',$('.TAO_01_down #content').get(0));
+		//console.log('content',$('.TAO_01_down #content').get(0));
 		console.log('div',$('.TAO_01_down #content div').length);
 		console.log('outDIV',$('.TAO_01_down #content .outDIV').length);
 		console.log('a',$('.TAO_01_down #content .outDIV a').length);
