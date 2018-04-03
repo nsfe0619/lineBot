@@ -47,6 +47,7 @@ function getGentlemanDogArr() {
 		//console.log('TAO_01_down',$('.TAO_01_down'));
 		console.log('TAO_01_down',$('.TAO_01_down').length);
 		console.log('content',$('.TAO_01_down #content').length);
+		console.log('content',$('.TAO_01_down #content'));
 		console.log('outDIV',$('.TAO_01_down #content .outDIV').length);
 		console.log('a',$('.TAO_01_down #content .outDIV a').length);
 		console.log('==================================================')
@@ -107,7 +108,9 @@ bot.on('message', function(event) {
   	}else if(event.message.text.match(/吼猴抽紳士狗.*/)){
   		var textSplit=event.message.text.split(" ");
   		console.log("textSplit",textSplit);
-  		getGentlemanDogArr();
+  		if(textSplit.length>1){
+  			getGentlemanDogArr(textSplit[1]);
+  		}
   	}
   	/*console.log('randomImg',randomImg);
     var msg = event.message.text;
