@@ -59,6 +59,7 @@ var bot = linebot({
 });
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
+  	console.log('message:',event.message);
   	if(event.message.text=='吼猴抽表特'){
   	getBeautyArr();
   	getImages(beautyArr[parseInt(beautyArr.length*Math.random())],function(img,url){
