@@ -41,7 +41,7 @@ var gentlemanDogArr=[];
 function getGentlemanDogArr() {
 	request('https://xn--zqs261djkh.com/search-巨乳', function (error, response, body) {
 
-		var matcher = body.match(/xn\-\-zqs261djkh.com/Gdog.*/g);
+		var matcher = body.match(/xn\-\-zqs261djkh.com\/Gdog.*/g);
 		console.log('matcher',matcher);
 			//console.log('body',body);
 		var $=cheerio.load(body);
