@@ -51,7 +51,7 @@ function getGentlemanDogArr() {
 		console.log('content',$('.TAO_01_down #content').length);
 		//console.log('content',$('.TAO_01_down #content').get(0));
 		console.log('div',$('.TAO_01_down #content div').length);
-		console.log('outDIV',$('.TAO_01_down #content .outDIV').length);
+		console.log('outDIV',$('.outDIV').length);
 		console.log('a',$('.TAO_01_down #content .outDIV a').length);
 		console.log('==================================================')
 		$('.TAO_01_down #content .outDIV a').each(function(i,elem){
