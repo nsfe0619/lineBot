@@ -2,9 +2,9 @@
 var linebot = require('linebot');
 var express = require('express');
 var cheerio = require('cheerio');
-
-
 var request = require('request');
+
+//抽表特start
 var beautyArr=[];	
 function getBeautyArr() {
 	request('https://www.ptt.cc/bbs/Beauty/index'+parseInt(1135*Math.random()+1300)+'.html', function (error, response, body) {
@@ -15,12 +15,10 @@ function getBeautyArr() {
 		})
 	});
 }
-getBeautyArr()
 
-var imgArr=[];	
 function getImages(post,callback) {
-	console.log('post',post);
   request('https://www.ptt.cc' + post, (err, res, body) => {
+	var imgArr=[];	
   	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
   	var randomImgArr=images;
   	if(randomImgArr){
@@ -32,12 +30,27 @@ function getImages(post,callback) {
   	}
   });
 }
+//抽表特end
+//抽紳士狗start
+var gentlemanDogArr=[];	
+function getGentlemanDogArr() {
+	request('https://xn--zqs261djkh.com/', function (error, response, body) {
+
+		var $=cheerio.load(body);
+		$('.outDIV a').each(function(i,elem){
+			console.log('outDiv',$('.outDIV a'));
+			//beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
+		})
+	});
+}
+
+//抽紳士狗end
+
 var bot = linebot({
   channelId: 1565375319,
   channelSecret: 'c58ae1cb241fbac4858f26fef7c94a9c',
   channelAccessToken: 'SA9InT9GKvrYsJG9a4m4hAwdp7qZdOqSNBKb9AjTGf46Oyy8sswiljKMqA7dVT4hxzWFpjE3nk3XpyJ6qhrjvljczlO+7wpTq7oKjZTGUQDwpxd9NCrCGymo5D3DN53dXMP1pdMxleC2rS64I8o8lQdB04t89/1O/w1cDnyilFU='
 });
-
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
   	if(event.message.text=='吼猴抽表特'){
@@ -76,6 +89,8 @@ bot.on('message', function(event) {
 		    });
 	    }
   	});
+  	}else if(event.message.text=='吼猴抽紳士狗'){
+
   	}
   	/*console.log('randomImg',randomImg);
     var msg = event.message.text;
