@@ -41,8 +41,12 @@ var gentlemanDogArr=[];
 function getGentlemanDogArr() {
 	request('https://xn--zqs261djkh.com/', function (error, response, body) {
 
-			console.log('body',body);
+			//console.log('body',body);
 		var $=cheerio.load(body);
+
+		console.log('TAO_01_down',$('.TAO_01_down'));
+		console.log('==================================================')
+		console.log('outDiv a',$('.TAO_01_down #content .outDIV a'));
 		$('.TAO_01_down #content .outDIV a').each(function(i,elem){
 			console.log('outDiv',$('.TAO_01_down #content .outDIV a'));
 			//beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
