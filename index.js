@@ -39,7 +39,7 @@ function getImages(post,callback) {
 //抽紳士狗start
 var gentlemanDogArr=[];	
 function getGentlemanDogArr() {
-	request('https://xn--zqs261djkh.com/', function (error, response, body) {
+	request('https://xn--zqs261djkh.com/search-巨乳', function (error, response, body) {
 
 			//console.log('body',body);
 		var $=cheerio.load(body);
@@ -104,7 +104,9 @@ bot.on('message', function(event) {
 		    });
 	    }
   	});
-  	}else if(event.message.text=='吼猴抽紳士狗'){
+  	}else if(event.message.text.match(/吼猴抽紳士狗.*/)){
+  		var textSplit=event.message.text.split(" ");
+  		console.log("textSplit",textSplit);
   		getGentlemanDogArr();
   	}
   	/*console.log('randomImg',randomImg);
