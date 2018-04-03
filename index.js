@@ -19,15 +19,20 @@ function getBeautyArr() {
 function getImages(post,callback) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
 	var imgArr=[];	
-  	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
-  	var randomImgArr=images;
-  	if(randomImgArr){
-  	var tmpRandomImg=randomImgArr[parseInt(randomImgArr.length*Math.random())];
+	if(body){	
+	  	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
+	  	var randomImgArr=images;
+	  	if(randomImgArr){
+		  	var tmpRandomImg=randomImgArr[parseInt(randomImgArr.length*Math.random())];
 
-  	callback(tmpRandomImg,post);
-  	}else{
-  		callback(false,post);
-  	}
+		  	callback(tmpRandomImg,post);
+	  	}else{
+	  		callback(false,post);
+	  	}
+	}else{
+	  		callback(false,post);
+	 }
+
   });
 }
 //抽表特end
