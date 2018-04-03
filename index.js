@@ -90,7 +90,7 @@ bot.on('message', function(event) {
 	    }
   	});
   	}else if(event.message.text=='吼猴抽紳士狗'){
-
+  		getGentlemanDogArr();
   	}
   	/*console.log('randomImg',randomImg);
     var msg = event.message.text;
