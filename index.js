@@ -15,7 +15,7 @@ function getBeautyArr() {
 		})
 	});
 }
-
+getBeautyArr();
 function getImages(post,callback) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
 	var imgArr=[];	
