@@ -43,8 +43,8 @@ function getGentlemanDogArr() {
 
 			console.log('body',body);
 		var $=cheerio.load(body);
-		$('.outDIV a').each(function(i,elem){
-			console.log('outDiv',$('.outDIV a'));
+		$('.TAO_01_down #content .outDIV a').each(function(i,elem){
+			console.log('outDiv',$('.TAO_01_down #content .outDIV a'));
 			//beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 		})
 	});
