@@ -44,14 +44,15 @@ function getGentlemanDogArr() {
 			//console.log('body',body);
 		var $=cheerio.load(body);
 
-		console.log('TAO_01_down',$('.TAO_01_down'));
+		//console.log('TAO_01_down',$('.TAO_01_down'));
+		//console.log('outDiv a',$('.TAO_01_down #content .outDIV a'));
 		console.log('==================================================')
-		console.log('outDiv a',$('.TAO_01_down #content .outDIV a'));
 		$('.TAO_01_down #content .outDIV a').each(function(i,elem){
-			console.log('outDiv',$('.TAO_01_down #content .outDIV a'));
-			//beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
+			console.log('outDiv',$('.TAO_01_down #content .outDIV a').eq(i).attr('href'));
+			gentlemanDogArr.push($('.r-ent .title a').eq(i).attr('href'));
 		})
 	});
+	console.log('gentlemanDogArr',gentlemanDogArr);
 }
 
 //抽紳士狗end
