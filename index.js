@@ -45,7 +45,10 @@ function getGentlemanDogArr() {
 		var $=cheerio.load(body);
 
 		//console.log('TAO_01_down',$('.TAO_01_down'));
-		console.log('outDiv a',$('.TAO_01_down #content .outDIV a'));
+		console.log('TAO_01_down',$('.TAO_01_down').length);
+		console.log('content',$('.TAO_01_down #content').length);
+		console.log('outDIV',$('.TAO_01_down #content .outDIV').length);
+		console.log('a',$('.TAO_01_down #content .outDIV a').length);
 		console.log('==================================================')
 		$('.TAO_01_down #content .outDIV a').each(function(i,elem){
 			console.log('outDiv',$('.TAO_01_down #content .outDIV a').eq(i));
