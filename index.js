@@ -41,6 +41,7 @@ var gentlemanDogArr=[];
 function getGentlemanDogArr() {
 	request('https://xn--zqs261djkh.com/', function (error, response, body) {
 
+			console.log('body',body);
 		var $=cheerio.load(body);
 		$('.outDIV a').each(function(i,elem){
 			console.log('outDiv',$('.outDIV a'));
