@@ -112,7 +112,14 @@ bot.on('message', function(event) {
   		var textSplit=event.message.text.split(" ");
   		console.log("textSplit",textSplit);
   		if(textSplit.length>1){
-  			getGentlemanDogArr(textSplit[1]);
+  			//getGentlemanDogArr(textSplit[1]);
+  		}
+  	}else if(event.message.text.match(/王逆查角色.*/)){
+  		console.log("event.message.text",event.message.text);
+  		var textSplit=event.message.text.split(" ");
+  		console.log("textSplit",textSplit);
+  		if(textSplit.length>1){
+  			//getGentlemanDogArr(textSplit[1]);
   		}
   	}
   	/*console.log('randomImg',randomImg);
