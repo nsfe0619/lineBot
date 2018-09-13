@@ -67,7 +67,7 @@ function getGentlemanDogArr() {
 
 var KRdata=[];	
 function queryKR(data) {
-	request('http://http://zh-tw.kings-raid.wikia.com/wiki/'+data, function (error, response, body) {
+	request('http://zh-tw.kings-raid.wikia.com/wiki/'+data, function (error, response, body) {
 
 		var $=cheerio.load(body);
 		console.log('krbody',$);
