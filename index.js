@@ -71,8 +71,8 @@ function queryKR(data) {
 
 		var $=cheerio.load(body);
 		console.log('krbody',$);
-		$('.r-ent .title a').each(function(i,elem){
-			beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
+		$('.wikitable').each(function(i,elem){
+			beautyArr.push($('.wikitable').eq(i).attr('href'));
 		})
 	});
 }
