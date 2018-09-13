@@ -70,8 +70,8 @@ function queryKR(data) {
 	request('http://zh-tw.kings-raid.wikia.com/wiki/'+data, function (error, response, body) {
 
 		var $=cheerio.load(body);
-		console.log('krbody',$);
 		$('.wikitable').each(function(i,elem){
+			console.log('item',$('.wikitable').eq(i));
 			beautyArr.push($('.wikitable').eq(i).attr('href'));
 		})
 	});
