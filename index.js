@@ -71,7 +71,7 @@ function queryKR(data) {
 
 		var $=cheerio.load(body);
 		$('.wikitable').each(function(i,elem){
-			console.log('item',$('.wikitable').eq(i));
+			console.log('item',$('.wikitable'));
 			beautyArr.push($('.wikitable').eq(i).attr('href'));
 		})
 	});
