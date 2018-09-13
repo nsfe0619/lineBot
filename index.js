@@ -130,7 +130,7 @@ bot.on('message', function(event) {
   		var textSplit=event.message.text.split(" ");
   		console.log("textSplit",textSplit);
   		if(textSplit.length>1){
-  			//getGentlemanDogArr(textSplit[1]);
+  			queryKR(textSplit[1]);
   		}
   	}
   	/*console.log('randomImg',randomImg);
