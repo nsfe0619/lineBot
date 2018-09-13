@@ -63,7 +63,18 @@ function getGentlemanDogArr() {
 }
 
 //抽紳士狗end
+//王逆查資料
 
+var KRdata=[];	
+function queryKR(data) {
+	request('http://http://zh-tw.kings-raid.wikia.com/wiki/'+data, function (error, response, body) {
+		console.log('krbody',body);
+		var $=cheerio.load(body);
+		$('.r-ent .title a').each(function(i,elem){
+			beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
+		})
+	});
+}
 var bot = linebot({
   channelId: 1565375319,
   channelSecret: 'c58ae1cb241fbac4858f26fef7c94a9c',
