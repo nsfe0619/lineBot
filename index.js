@@ -57,7 +57,7 @@ function queryIV(pokemonName,CP,HP,star)	 {
 function queryPokemon(pokemonName){
 	var csv = require("fast-csv");
 	csv
-	.fromPath("pokemonData/pokemonBaseStat.csv")
+	.fromPath("/node_modules/pokemonData/pokemonBaseStat.csv")
 	.on("data", function(results) {
 	  console.log(results);
 	})
