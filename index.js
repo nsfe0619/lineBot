@@ -61,10 +61,10 @@ function queryPokemon(pokemonName){
 	console.log('pokemonLib',pokemonLib);
 	for(var pokemon in pokemonLib){
 		console.log('pokemonName',pokemonName);
-		console.log('pokemon',pokemon[3]);
-		if(pokemonName==pokemon[1]||pokemonName==pokemon[2]||pokemonName==pokemon[3]||pokemonName==pokemon[4]){
 		console.log('pokemon',pokemon);
-		}
+		// if(pokemonName==pokemon[1]||pokemonName==pokemon[2]||pokemonName==pokemon[3]||pokemonName==pokemon[4]){
+		// console.log('pokemon',pokemon);
+		// }
 
 	}
 	})
