@@ -94,8 +94,13 @@ bot.on('message', function(event) {
 		    });
 	    }
   	});
-  	}else if(event.message.text=='吼猴抽紳士狗'){
-  		getGentlemanDogArr();
+  	}else if(event.message.text.match(/IV.*/)){
+  		console.log("event.message.text",event.message.text);
+  		var textSplit=event.message.text.split(" ");
+  		console.log("textSplit",textSplit);
+  		if(textSplit.length>1){
+  			queryKR(textSplit[1]);
+  		}	
   	}
   	/*console.log('randomImg',randomImg);
     var msg = event.message.text;
