@@ -54,7 +54,7 @@ function getGentlemanDogArr() {
 
 function queryIV(pokemonName,CP,HP,star)	 {
 	queryPokemon(pokemonName,function(pokemonData){
-		cosole.log('pokemonData',pokemonData);
+		console.log('pokemonData',pokemonData);
 	})
 }
 function queryPokemon(pokemonName,callback){
