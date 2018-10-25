@@ -79,6 +79,7 @@ function queryCSV(url){
 		pokemonArr.push(result);
 	})
 	.on("end", function() {
+		console.log('pokemonArr',pokemonArr);
 	  console.log("讀取成功!");
 		return pokemonArr;
 	});
