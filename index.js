@@ -53,17 +53,15 @@ function getGentlemanDogArr() {
 //查IV start
 
 function queryIV(pokemonName,CP,HP,star)	 {
-	queryPokemon(pokemonName)
+	queryPokemon(pokemonName,function(pokemonData){
+		cosole.log('pokemonData',pokemonData);
+	})
 }
-function queryPokemon(pokemonName){
+function queryPokemon(pokemonName,callback){
 	queryCSV("node_modules/pokemonData/pokemonBaseStat.csv",function(pokemonLib){
-
-	console.log('pokemonLib',pokemonLib);
 	for(var i in pokemonLib){
-		console.log('pokemon',pokemonLib[i]);
-		console.log('pokemon',pokemonLib[i][3]);
 		if(pokemonName==pokemonLib[i][1]||pokemonName==pokemonLib[i][2]||pokemonName==pokemonLib[i][3]||pokemonName==pokemonLib[i][4]){
-		console.log('pokemon',pokemonLib[i]);
+		callback(pokemonLib[i]);
 		}
 
 	}
