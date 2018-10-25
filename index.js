@@ -69,11 +69,14 @@ function queryPokemon(pokemonName){
 }
 //查IV back
 function queryCSV(url){
+		console.log('url',url);
 	var csv = require("fast-csv");
 	csv
 	.fromPath(url)
 	.on("data", function(results) {
+		console.log('results',results);
 		var lines=results.split("\n");
+		console.log('lines',lines);
 		return lines;
 	})
 	.on("end", function() {
