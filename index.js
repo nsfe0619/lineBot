@@ -57,7 +57,8 @@ function queryIV(pokemonName,CP,HP,star)	 {
 }
 function queryPokemon(pokemonName){
 	var pokemonLib= queryCSV("node_modules/pokemonData/pokemonBaseStat.csv");	
-	for(pokemon in pokemonLib){
+	console.log(pokemonLib.size);
+	for(var pokemon in pokemonLib){
 		console.log('pokemonName',pokemonName);
 		console.log('pokemon',pokemon[3]);
 		if(pokemonName==pokemon[1]||pokemonName==pokemon[2]||pokemonName==pokemon[3]||pokemonName==pokemon[4]){
