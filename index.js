@@ -59,12 +59,12 @@ function queryPokemon(pokemonName){
 	queryCSV("node_modules/pokemonData/pokemonBaseStat.csv",function(pokemonLib){
 
 	console.log('pokemonLib',pokemonLib);
-	for(var pokemon in pokemonLib){
-		console.log('pokemonName',pokemonName);
-		console.log('pokemon',pokemon);
-		// if(pokemonName==pokemon[1]||pokemonName==pokemon[2]||pokemonName==pokemon[3]||pokemonName==pokemon[4]){
-		// console.log('pokemon',pokemon);
-		// }
+	for(var i in pokemonLib){
+		console.log('pokemon',pokemonLib[i]);
+		console.log('pokemon',pokemonLib[i][3]);
+		if(pokemonName==pokemonLib[i][1]||pokemonName==pokemonLib[i][2]||pokemonName==pokemonLib[i][3]||pokemonName==pokemonLib[i][4]){
+		console.log('pokemon',pokemonLib[i]);
+		}
 
 	}
 	})
