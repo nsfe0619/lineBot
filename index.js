@@ -71,16 +71,16 @@ function queryPokemon(pokemonName){
 function queryCSV(url){
 		console.log('url',url);
 	var csv = require("fast-csv");
+	var pokemonArr=[];
 	csv
 	.fromPath(url)
-	.on("data", function(results) {
-		console.log('results',results);
-		var lines=results.split("\n");
-		console.log('lines',lines);
-		return lines;
+	.on("data", function(result) {
+		console.log('result',result);
+		pokemonArr.push(result);
 	})
 	.on("end", function() {
 	  console.log("讀取成功!");
+		return pokemonArr;
 	});
 
 }
