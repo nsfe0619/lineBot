@@ -52,13 +52,11 @@ function getGentlemanDogArr() {
 //抽紳士狗end
 //查IV start
 
-var pokemonLib= queryCSV("node_modules/pokemonData/pokemonBaseStat.csv");
 function queryIV(pokemonName,CP,HP,star)	 {
-  		console.log("queryIV",pokemonName);
 	queryPokemon(pokemonName)
 }
 function queryPokemon(pokemonName){
-  		console.log("queryPokemon",pokemonName);
+	var pokemonLib= queryCSV("node_modules/pokemonData/pokemonBaseStat.csv");	
 	for(pokemon in pokemonLib){
 		console.log('pokemonName',pokemonName);
 		console.log('pokemon',pokemon[3]);
@@ -70,7 +68,6 @@ function queryPokemon(pokemonName){
 }
 //查IV back
 function queryCSV(url){
-  		console.log("queryCSV",url);
 	var csv = require("fast-csv");
 	csv
 	.fromPath(url)
