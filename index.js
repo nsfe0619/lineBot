@@ -57,14 +57,22 @@ function queryIV(pokemonName,CP,HP,star)	 {
 		console.log('pokemonData',pokemonData);
 	})
 }
-function queryPokemon(pokemonName,callback){
-	queryCSV("node_modules/pokemonData/pokemonBaseStat.csv",function(pokemonLib){
-	for(var i in pokemonLib){
-		if(pokemonName==pokemonLib[i][1]||pokemonName==pokemonLib[i][2]||pokemonName==pokemonLib[i][3]||pokemonName==pokemonLib[i][4]){
-		callback(pokemonLib[i]);
-		}
+function queryPokemon(pokemonName,CP,HP,star,callback){
+	queryCSV("node_modules/pokemonData/pokemonStarDust.csv",function(pokemonStarDust){
+		queryCSV("node_modules/pokemonData/pokemonCPM.csv",function(pokemonCPM){
+			queryCSV("node_modules/pokemonData/pokemonBaseStat.csv",function(pokemonLib){
+				for(var i in pokemonLib){
+					if(pokemonName==pokemonLib[i][1]||pokemonName==pokemonLib[i][2]||pokemonName==pokemonLib[i][3]||pokemonName==pokemonLib[i][4]){
+					// callback(pokemonLib[i]);
+						var pokemon=pokemonLib[i];
+						for(var star in pokemonStarDust){
 
-	}
+						}
+					}
+
+				}
+			})
+		})
 	})
 }
 //查IV back
