@@ -70,7 +70,7 @@ function queryPokemon(pokemonName){
 	})
 }
 //查IV back
-function queryCSV(url){
+function queryCSV(url,callback){
 	var csv = require("fast-csv");
 	var pokemonArr=[];
 	csv
@@ -79,8 +79,8 @@ function queryCSV(url){
 		pokemonArr.push(result);
 	})
 	.on("end", function() {
-	  console.log("讀取成功!",pokemonArr);
-		return pokemonArr;
+	  console.log("讀取成功!");
+		callback(pokemonArr);
 	});
 
 }
