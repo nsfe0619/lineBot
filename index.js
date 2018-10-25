@@ -56,7 +56,8 @@ function queryIV(pokemonName,CP,HP,star)	 {
 	queryPokemon(pokemonName)
 }
 function queryPokemon(pokemonName){
-	var pokemonLib= queryCSV("node_modules/pokemonData/pokemonBaseStat.csv");	
+	queryCSV("node_modules/pokemonData/pokemonBaseStat.csv",function(pokemonLib){
+
 	console.log('pokemonLib',pokemonLib);
 	for(var pokemon in pokemonLib){
 		console.log('pokemonName',pokemonName);
@@ -66,6 +67,7 @@ function queryPokemon(pokemonName){
 		}
 
 	}
+	})
 }
 //查IV back
 function queryCSV(url){
