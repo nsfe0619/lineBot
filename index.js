@@ -58,7 +58,10 @@ function queryIV(pokemonName,CP,HP,star)	 {
 }
 function queryPokemon(pokemonName){
 	for(pokemon in pokemonLib){
+		if(pokemonName==pokemon[1]||pokemonName==pokemon[2]||pokemonName==pokemon[3]||pokemonName==pokemon[4]){
 		console.log('pokemon',pokemon);
+		}
+
 	}
 }
 //查IV back
