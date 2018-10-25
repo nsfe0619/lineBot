@@ -57,7 +57,7 @@ function queryIV(pokemonName,CP,HP,star)	 {
 }
 function queryPokemon(pokemonName){
 	var pokemonLib= queryCSV("node_modules/pokemonData/pokemonBaseStat.csv");	
-	console.log(pokemonLib.size);
+	console.log(pokemonLib.length);
 	for(var pokemon in pokemonLib){
 		console.log('pokemonName',pokemonName);
 		console.log('pokemon',pokemon[3]);
@@ -73,7 +73,8 @@ function queryCSV(url){
 	csv
 	.fromPath(url)
 	.on("data", function(results) {
-		return results;
+		var lines=results.split("\n");
+		return lines;
 	})
 	.on("end", function() {
 	  console.log("讀取成功!");
