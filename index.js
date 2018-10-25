@@ -50,22 +50,30 @@ function getGentlemanDogArr() {
 }
 
 //抽紳士狗end
-//查IV start{
+//查IV start
+
+var pokemonLib= queryCSV("node_modules/pokemonData/pokemonBaseStat.csv");
 function queryIV(pokemonName,CP,HP,star)	 {
 	queryPokemon(pokemonName)
 }
 function queryPokemon(pokemonName){
+	for(pokemon in pokemonLib){
+		console.log('pokemon',pokemon);
+	}
+}
+//查IV back
+function queryCSV(url){
 	var csv = require("fast-csv");
 	csv
-	.fromPath("node_modules/pokemonData/pokemonBaseStat.csv")
+	.fromPath(url)
 	.on("data", function(results) {
-	  console.log(results);
+		return results;
 	})
 	.on("end", function() {
 	  console.log("讀取成功!");
 	});
+
 }
-//查IV back
 
 var bot = linebot({
   channelId: 1565375319,
