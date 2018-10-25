@@ -50,6 +50,22 @@ function getGentlemanDogArr() {
 }
 
 //抽紳士狗end
+//查IV start{
+function countIV(pokemonName,CP,HP,star)	 {
+
+}
+function queryPokemon(pokeName){
+	var csv = require("fast-csv");
+	csv
+	.fromPath("/pokemonData/pokemonBaseStat.csv")
+	.on("data", function(results) {
+	  console.log(results);
+	})
+	.on("end", function() {
+	  console.log("讀取成功!");
+	});
+}
+//查IV back
 
 var bot = linebot({
   channelId: 1565375319,
@@ -94,28 +110,14 @@ bot.on('message', function(event) {
 		    });
 	    }
   	});
-  	}else if(event.message.text.match(/IV.*/)){
+  	}else if(event.message.text.match(/查IV.*/)){
   		console.log("event.message.text",event.message.text);
   		var textSplit=event.message.text.split(" ");
   		console.log("textSplit",textSplit);
   		if(textSplit.length>1){
-  			queryKR(textSplit[1]);
+  			queryIV(textSplit[1]);
   		}	
   	}
-  	/*console.log('randomImg',randomImg);
-    var msg = event.message.text;
-    var imagesBack={
-	    "type": "image",
-	    "originalContentUrl": "https://"+randomImg,
-	    "previewImageUrl": "https://"+randomImg
-	}
-    event.reply(imagesBack).then(function(data) {
-      // success 
-      console.log(imagesBack);
-    }).catch(function(error) {
-      // error 
-      console.log('error');
-    });*/
   }
 });
 

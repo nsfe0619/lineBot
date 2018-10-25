@@ -7,6 +7,7 @@
     "callback": "0.0.1",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
+    "fast-csv": "^2.4.1",
     "linebot": "^1.4.1",
     "regex": "^0.1.1",
     "request": "^2.85.0"
