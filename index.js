@@ -52,9 +52,9 @@ function getGentlemanDogArr() {
 //抽紳士狗end
 //查IV start{
 function queryIV(pokemonName,CP,HP,star)	 {
-	queryPokemon(pokeName)
+	queryPokemon(pokemonName)
 }
-function queryPokemon(pokeName){
+function queryPokemon(pokemonName){
 	var csv = require("fast-csv");
 	csv
 	.fromPath("/pokemonData/pokemonBaseStat.csv")
