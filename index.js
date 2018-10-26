@@ -66,9 +66,9 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 					 // callback(pokemonLib[i]);
 					 	var pokemonData=pokemonLib[i];
 					 	var pokemonNo=pokemonData[0];
-					 	var baseStamina=pokemonData[5];
-					 	var baseAttack=pokemonData[6];
-					 	var baseDefence=pokemonData[7];
+					 	var baseStamina=parseInt(pokemonData[5]);
+					 	var baseAttack=parseInt(pokemonData[6]);
+					 	var baseDefence=parseInt(pokemonData[7]);
 
 						console.log('pokemonNo',pokemonNo);
 						console.log('baseStamina',baseStamina);
@@ -84,7 +84,7 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 										var CPM=pokemonCPM[c][1];
 										console.log('pokemonCPM',CPM);
 										for(var x=1;x<=15;x++){
-											countHP=(baseStamina+x)*CPM;
+											countHP=Math.floor((baseStamina+x)*CPM);
 											console.log('countHP',countHP);
 										}
 									}
