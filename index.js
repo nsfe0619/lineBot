@@ -83,6 +83,7 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 										for(var IV_stamina=1;IV_stamina<=15;IV_stamina++){
 											countHP=Math.floor((baseStamina+IV_stamina)*CPM);
 											if(HP==countHP){
+														console.log('IV_stamina',IV_stamina);
 												for(var IV_attack=1;IV_attack<15;IV_attack++){
 
 													for(var IV_defence=1;IV_defence<15;IV_defence++){
