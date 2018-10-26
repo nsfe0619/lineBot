@@ -68,10 +68,15 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 	queryCSV("node_modules/pokemonData/pokemonStarDust.csv",function(pokemonStarDust){
 		queryCSV("node_modules/pokemonData/pokemonCPM.csv",function(pokemonCPM){
 			queryCSV("node_modules/pokemonData/pokemonBaseStat.csv",function(pokemonLib){
+				var pokemonData;
 				for(var i in pokemonLib){
 					if(pokemonName==pokemonLib[i][1]||pokemonName==pokemonLib[i][2]||pokemonName==pokemonLib[i][3]||pokemonName==pokemonLib[i][4]){
 					 // callback(pokemonLib[i]);
-					 	var pokemonData=pokemonLib[i];
+					 	pokemonData=pokemonLib[i];
+					}
+
+				}
+					if(pokemonData){
 					 	var pokemonNo=pokemonData[0];
 					 	var baseStamina=parseInt(pokemonData[5]);
 					 	var baseAttack=parseInt(pokemonData[6]);
@@ -108,10 +113,8 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 								}
 							}
 						}
+						callback(pokemonIVData);
 					}
-
-				}
-				callback(pokemonIVData);
 			})
 		})
 	})
