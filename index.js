@@ -53,7 +53,7 @@ function getGentlemanDogArr() {
 //查IV start
 
 function queryIV(pokemonName,CP,HP,star)	 {
-	queryPokemon(pokemonName,function(pokemonData){
+	queryPokemon(pokemonName,CP,HP,star,function(pokemonData){
 		console.log('pokemonData',pokemonData);
 	})
 }
