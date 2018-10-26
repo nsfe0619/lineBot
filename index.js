@@ -70,32 +70,24 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 					 	var baseAttack=parseInt(pokemonData[6]);
 					 	var baseDefence=parseInt(pokemonData[7]);
 
-						console.log('pokemonNo',pokemonNo);
-						console.log('baseStamina',baseStamina);
-						console.log('baseAttack',baseAttack);
-						console.log('baseDefence',baseDefence);
 						var pokemon=pokemonLib[i];
 						for(var s in pokemonStarDust){
 							if(pokemonStarDust[s][1]==star){
-								console.log('startDust',pokemonStarDust[s]);
 								var lv=pokemonStarDust[s][0]
 								for(var c in pokemonCPM){
 									if(pokemonCPM[c][0]==lv){
 										var CPM=parseFloat(pokemonCPM[c][1]);
-										console.log('pokemonCPM',CPM);
 										for(var IV_stamina=1;IV_stamina<=15;IV_stamina++){
 											countHP=Math.floor((baseStamina+IV_stamina)*CPM);
 											if(HP==countHP){
-														console.log('IV_stamina',IV_stamina);
 												for(var IV_attack=1;IV_attack<15;IV_attack++){
 
 													for(var IV_defence=1;IV_defence<15;IV_defence++){
 														var countCP=Math.floor((baseAttack + IV_attack) * Math.sqrt(baseDefence + IV_defence) * Math.sqrt(baseStamina + IV_stamina) * (CPM*CPM) / 10 );
-														console.log('countCP',countCP);
-														console.log('CP',CP);
+
 														if(countCP==CP){
-															var IV=Math.floor((IV_stamina+IV_attack+IV_defence)/45)
-															console.log(pokemonName+' IV:'+IV+ ' IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
+															var IV=Math.floor((IV_stamina+IV_attack+IV_defence)/45*100)
+															console.log(pokemonName+' IV:'+IV+ '% IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
 															
 														}
 													}
