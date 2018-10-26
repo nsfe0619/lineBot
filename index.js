@@ -96,7 +96,7 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 														if(countCP==CP){
 															var IV=Math.floor((IV_stamina+IV_attack+IV_defence)/45)
 															console.log(pokemonName+' IV:'+IV+ ' IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
-															sendMsg(pokemonName+' IV:'+IV+ ' IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
+															
 														}
 													}
 
