@@ -89,7 +89,7 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 														var countCP=Math.floor((baseAttack + IV_attack) * Math.sqrt(baseDefence + IV_defence) * Math.sqrt(baseStamina + IV_stamina) * (CPM*CPM) / 10 );
 														if(countCP==CP){
 															console.log(pokemonName+' IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
-															sendMsg(pokemonName+' IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
+															
 														}
 													}
 
@@ -124,17 +124,17 @@ function queryCSV(url,callback){
 
 }
 function sendMsg(txt){
-		    var msg=[{
-				"type":"text",
-				"text":txt
-			}]
-	    	event.reply(msg).then(function(data) {
-		      // success 
-		      console.log(msg);
-		    }).catch(function(error) {
-		      // error 
-		      console.log('error');
-		    });
+    var msg=[{
+		"type":"text",
+		"text":txt
+	}]
+	event.reply(msg).then(function(data) {
+      // success 
+      console.log(msg);
+    }).catch(function(error) {
+      // error 
+      console.log('error');
+    });
 }
 
 var bot = linebot({
