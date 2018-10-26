@@ -89,8 +89,7 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 												for(var IV_attack=1;IV_attack<15;IV_attack++){
 
 													for(var IV_defence=1;IV_defence<15;IV_defence++){
-														console.log((CPM*CPM));
-														var countCP=Math.floor((baseAttack + IV_attack) * (baseDefence + IV_defence)^0.5 * (baseStamina + IV_stamina)^0.5 * (CPM*CPM) / 10 );
+														var countCP=Math.floor((baseAttack + IV_attack) * ((baseDefence + IV_defence)^0.5) * ((baseStamina + IV_stamina)^0.5) * (CPM*CPM) / 10 );
 														console.log('countCP',countCP);
 													}
 
