@@ -57,7 +57,7 @@ function queryIV(pokemon,callback)	 {
 		var returnMsg='';
 		for(var p in pokemonData){
 			var pokemon=pokemonData[p];
-			returnMsg+=pokemon.pokemonName+' IV:'+pokemon.IV+ '% IV_attack:'+pokemon.IV_attack+' IV_defence:'+pokemon.IV_defence +' IV_stamina:'+pokemon.IV_stamina+'\r\n';
+			returnMsg+=pokemon.pokemonName+' IV:'+pokemon.IV+ '% Att:'+pokemon.IV_attack+' Def:'+pokemon.IV_defence +' HP:'+pokemon.IV_stamina+'\r\n';
 		}
 	  console.log("queryIV",returnMsg);
 		callback(returnMsg);
