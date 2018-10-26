@@ -83,9 +83,19 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 									if(pokemonCPM[c][0]==lv){
 										var CPM=pokemonCPM[c][1];
 										console.log('pokemonCPM',CPM);
-										for(var x=1;x<=15;x++){
-											countHP=Math.floor((baseStamina+x)*CPM);
-											console.log('countHP',countHP);
+										for(var IV_stamina=1;IV_stamina<=15;IV_stamina++){
+											countHP=Math.floor((baseStamina+IV_stamina)*CPM);
+											if(HP==countHP){
+												for(var IV_attack=1;IV_attack<15;IV_attack++){
+
+													for(var IV_defence=1;IV_defence<15;IV_defence++){
+														var countCP=Math.floor((baseAttack + IV_attack) * (baseDefence + IV_defence)^0.5 * (baseStamina + IV_stamina)^0.5 * (CPM^2) / 10 );
+														console.log('countCP',countCP);
+													}
+
+												}
+
+											}
 										}
 									}
 								}
