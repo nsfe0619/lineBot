@@ -66,14 +66,11 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 					 // callback(pokemonLib[i]);
 					 	var pokemonData=pokemonLib[i];
 					 	var pokemonNo=pokemonData[0];
+					 	var pokemonName=pokemonData[4];
 					 	var baseStamina=parseInt(pokemonData[5]);
 					 	var baseAttack=parseInt(pokemonData[6]);
 					 	var baseDefence=parseInt(pokemonData[7]);
 
-						console.log('pokemonNo',pokemonNo);
-						console.log('baseStamina',baseStamina);
-						console.log('baseAttack',baseAttack);
-						console.log('baseDefence',baseDefence);
 						var pokemon=pokemonLib[i];
 						for(var s in pokemonStarDust){
 							if(pokemonStarDust[s][1]==star){
@@ -89,10 +86,11 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 												for(var IV_attack=1;IV_attack<15;IV_attack++){
 
 													for(var IV_defence=1;IV_defence<15;IV_defence++){
-														console.log('count',(baseStamina + IV_stamina));
-														console.log('count',(Math.sqrt(baseStamina + IV_stamina)));
 														var countCP=Math.floor((baseAttack + IV_attack) * Math.sqrt(baseDefence + IV_defence) * Math.sqrt(baseStamina + IV_stamina) * (CPM*CPM) / 10 );
-														console.log('countCP',countCP);
+														if(countCP==CP){
+															console.log(pokemonName+' IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
+															sendMsg(pokemonName+' IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
+														}
 													}
 
 												}
@@ -124,6 +122,19 @@ function queryCSV(url,callback){
 		callback(pokemonArr);
 	});
 
+}
+function sendMsg(txt){
+		    var msg=[{
+				"type":"text",
+				"text":txt
+			}]
+	    	event.reply(msg).then(function(data) {
+		      // success 
+		      console.log(msg);
+		    }).catch(function(error) {
+		      // error 
+		      console.log('error');
+		    });
 }
 
 var bot = linebot({
