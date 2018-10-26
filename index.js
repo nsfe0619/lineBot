@@ -146,7 +146,17 @@ var bot = linebot({
   channelAccessToken: 'SA9InT9GKvrYsJG9a4m4hAwdp7qZdOqSNBKb9AjTGf46Oyy8sswiljKMqA7dVT4hxzWFpjE3nk3XpyJ6qhrjvljczlO+7wpTq7oKjZTGUQDwpxd9NCrCGymo5D3DN53dXMP1pdMxleC2rS64I8o8lQdB04t89/1O/w1cDnyilFU='
 });
 bot.on('message', function(event) {
-  if (event.message.type = 'text') {
+
+	function replyMsg(msg){
+		event.reply(msg).then(function(data) {
+		// success 
+		 console.log(msg);
+		}).catch(function(error) {
+		// error 
+		console.log('error');
+		});
+	}
+  if (event.message.type = 'text'&&event.message.text) {
   	if(event.message.text=='吼猴抽表特'){
   	getBeautyArr();
   	getImages(beautyArr[parseInt(beautyArr.length*Math.random())],function(img,url){
@@ -189,14 +199,18 @@ bot.on('message', function(event) {
   		console.log("textSplit",textSplit);
   		if(textSplit.length>4){
   			queryIV(textSplit,function(msg){
-  				console.log('msg',msg)
-	    	event.reply(msgType(msg)).then(function(data) {
-		      // success 
-		      console.log(msg);
-		    }).catch(function(error) {
-		      // error 
-		      console.log('error');
-		    });
+  				if(msg){
+		  			console.log('msg',msg)
+			    	event.reply(msgType(msg)).then(function(data) {
+				      // success 
+				      console.log(msg);
+				    }).catch(function(error) {
+				      // error 
+				      console.log('error');
+				    });
+  				}else{
+  					replyMsg('查無資料!');
+  				}
   			});
   		}	
   	}
