@@ -63,10 +63,11 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 			queryCSV("node_modules/pokemonData/pokemonBaseStat.csv",function(pokemonLib){
 				for(var i in pokemonLib){
 					if(pokemonName==pokemonLib[i][1]||pokemonName==pokemonLib[i][2]||pokemonName==pokemonLib[i][3]||pokemonName==pokemonLib[i][4]){
-					// callback(pokemonLib[i]);
+					 // callback(pokemonLib[i]);
+						console.log('pokemonData',pokemonLib[i]);
 						var pokemon=pokemonLib[i];
-						for(var star in pokemonStarDust){
-
+						for(var s in pokemonStarDust){
+							console.log('startDust',pokemonStarDust[s]);
 						}
 					}
 
