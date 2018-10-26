@@ -81,7 +81,7 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 								var lv=pokemonStarDust[s][0]
 								for(var c in pokemonCPM){
 									if(pokemonCPM[c][0]==lv){
-										var CPM=pokemonCPM[c][1];
+										var CPM=parseInt(pokemonCPM[c][1]);
 										console.log('pokemonCPM',CPM);
 										for(var IV_stamina=1;IV_stamina<=15;IV_stamina++){
 											countHP=Math.floor((baseStamina+IV_stamina)*CPM);
