@@ -94,8 +94,9 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 														console.log('countCP',countCP);
 														console.log('CP',CP);
 														if(countCP==CP){
-															console.log(pokemonName+' IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
-															
+															var IV=Math.floor((IV_stamina+IV_attack+IV_defence)/45)
+															console.log(pokemonName+' IV:'+IV+ ' IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
+															sendMsg(pokemonName+' IV:'+IV+ ' IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
 														}
 													}
 
