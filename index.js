@@ -52,9 +52,14 @@ function getGentlemanDogArr() {
 //抽紳士狗end
 //查IV start
 
-function queryIV(pokemon)	 {
+function queryIV(pokemon,callback)	 {
 	queryPokemon(pokemon[1],pokemon[2],pokemon[3],pokemon[4],function(pokemonData){
-		console.log('pokemonData',pokemonData);
+		var returnMsg=[];
+		for(var p in pokemonData){
+			var pokemon=pokemonData[p];
+			returnMsg.push(pokemon.pokemonName+' IV:'+pokemon.IV+ '% IV_attack:'+pokemon.IV_attack+' IV_defence:'+pokemon.IV_defence +' IV_stamina:'+pokemon.IV_stamina);
+		}
+		callback(msgType(returnMsg));
 	})
 }
 function queryPokemon(pokemonName,CP,HP,star,callback){
@@ -125,18 +130,15 @@ function queryCSV(url,callback){
 	});
 
 }
-function sendMsg(txt){
-    var msg=[{
-		"type":"text",
-		"text":txt
-	}]
-	event.reply(msg).then(function(data) {
-      // success 
-      console.log(msg);
-    }).catch(function(error) {
-      // error 
-      console.log('error');
-    });
+function msgType(arr){
+	var returnMsg=[];
+	for(var a in arr){
+		returnMsg.push({
+				"type":"text",
+				"text":arr[a]
+				})
+	}
+	return returnMsg;
 }
 
 var bot = linebot({
@@ -186,8 +188,16 @@ bot.on('message', function(event) {
   		console.log("event.message.text",event.message.text);
   		var textSplit=event.message.text.split(" ");
   		console.log("textSplit",textSplit);
-  		if(textSplit.length>1){
-  			queryIV(textSplit);
+  		if(textSplit.length>4){
+  			queryIV(textSplit,function(msg){
+	    	event.reply(msg).then(function(data) {
+		      // success 
+		      console.log(msg);
+		    }).catch(function(error) {
+		      // error 
+		      console.log('error');
+		    });
+  			});
   		}	
   	}
   }
