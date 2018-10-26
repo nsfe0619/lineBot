@@ -59,6 +59,7 @@ function queryIV(pokemon,callback)	 {
 			var pokemon=pokemonData[p];
 			returnMsg.push(pokemon.pokemonName+' IV:'+pokemon.IV+ '% IV_attack:'+pokemon.IV_attack+' IV_defence:'+pokemon.IV_defence +' IV_stamina:'+pokemon.IV_stamina);
 		}
+	  console.log("queryIV",returnMsg);
 		callback(msgType(returnMsg));
 	})
 }
@@ -138,6 +139,7 @@ function msgType(arr){
 				"text":arr[a]
 				})
 	}
+	  console.log("msgType",returnMsg);
 	return returnMsg;
 }
 
@@ -190,6 +192,7 @@ bot.on('message', function(event) {
   		console.log("textSplit",textSplit);
   		if(textSplit.length>4){
   			queryIV(textSplit,function(msg){
+  				console.log('msg',msg)
 	    	event.reply(msg).then(function(data) {
 		      // success 
 		      console.log(msg);
