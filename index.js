@@ -67,8 +67,11 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 						console.log('pokemonData',pokemonLib[i]);
 						var pokemon=pokemonLib[i];
 						for(var s in pokemonStarDust){
-							if(pokemonStarDust[s][1]==star)
-							console.log('startDust',pokemonStarDust[s]);
+							console.log('star',star);
+							console.log('pokemonStarDust[s][1]',pokemonStarDust[s][1]);
+							if(pokemonStarDust[s][1]==star){
+								console.log('startDust',pokemonStarDust[s]);
+							}
 						}
 					}
 
