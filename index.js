@@ -54,10 +54,10 @@ function getGentlemanDogArr() {
 
 function queryIV(pokemon,callback)	 {
 	queryPokemon(pokemon[1],pokemon[2],pokemon[3],pokemon[4],function(pokemonData){
-		var returnMsg=[];
+		var returnMsg;
 		for(var p in pokemonData){
 			var pokemon=pokemonData[p];
-			returnMsg.push(pokemon.pokemonName+' IV:'+pokemon.IV+ '% IV_attack:'+pokemon.IV_attack+' IV_defence:'+pokemon.IV_defence +' IV_stamina:'+pokemon.IV_stamina);
+			returnMsg+=pokemon.pokemonName+' IV:'+pokemon.IV+ '% IV_attack:'+pokemon.IV_attack+' IV_defence:'+pokemon.IV_defence +' IV_stamina:'+pokemon.IV_stamina+'%0D%0A';
 		}
 	  console.log("queryIV",returnMsg);
 		callback(returnMsg);
