@@ -131,14 +131,11 @@ function queryCSV(url,callback){
 	});
 
 }
-function msgType(arr){
-	var returnMsg=[];
-	for(var a in arr){
-		returnMsg.push({
+function msgType(msg){
+	var returnMsg={
 				"type":"text",
-				"text":arr[a]
-				})
-	}
+				"text":msg
+				}
 	  console.log("msgType",returnMsg);
 	return returnMsg;
 }
