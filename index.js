@@ -86,6 +86,7 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 														var countCP=Math.floor((baseAttack + IV_attack) * Math.sqrt(baseDefence + IV_defence) * Math.sqrt(baseStamina + IV_stamina) * (CPM*CPM) / 10 );
 
 															var IV=(IV_stamina+IV_attack+IV_defence)/45*100
+															console.log('countCP',countCP);
 															console.log(pokemonName+' IV:'+IV+ '% IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
 															
 														// if(countCP==CP){
