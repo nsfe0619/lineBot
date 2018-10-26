@@ -193,7 +193,7 @@ bot.on('message', function(event) {
   		if(textSplit.length>4){
   			queryIV(textSplit,function(msg){
   				console.log('msg',msg)
-	    	event.reply(msgType(msg).then(function(data) {
+	    	event.reply(msgType(msg)).then(function(data) {
 		      // success 
 		      console.log(msg);
 		    }).catch(function(error) {
