@@ -71,6 +71,10 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 					 	var baseAttack=parseInt(pokemonData[6]);
 					 	var baseDefence=parseInt(pokemonData[7]);
 
+						console.log('pokemonNo',pokemonNo);
+						console.log('baseStamina',baseStamina);
+						console.log('baseAttack',baseAttack);
+						console.log('baseDefence',baseDefence);
 						var pokemon=pokemonLib[i];
 						for(var s in pokemonStarDust){
 							if(pokemonStarDust[s][1]==star){
