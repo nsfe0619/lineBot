@@ -64,7 +64,16 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 				for(var i in pokemonLib){
 					if(pokemonName==pokemonLib[i][1]||pokemonName==pokemonLib[i][2]||pokemonName==pokemonLib[i][3]||pokemonName==pokemonLib[i][4]){
 					 // callback(pokemonLib[i]);
-						console.log('pokemonData',pokemonLib[i]);
+					 	var pokemonData=pokemonLib[i];
+					 	var pokemonNo=pokemonData[0];
+					 	var baseStamina=pokemonData[5];
+					 	var baseAttack=pokemonData[6];
+					 	var baseDefence=pokemonData[7];
+
+						console.log('pokemonNo',pokemonNo);
+						console.log('baseStamina',baseStamina);
+						console.log('baseAttack',baseAttack);
+						console.log('baseDefence',baseDefence);
 						var pokemon=pokemonLib[i];
 						for(var s in pokemonStarDust){
 							if(pokemonStarDust[s][1]==star){
@@ -72,7 +81,12 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 								var lv=pokemonStarDust[s][0]
 								for(var c in pokemonCPM){
 									if(pokemonCPM[c][0]==lv){
-										console.log('pokemonCPM',pokemonCPM[c][1]);
+										var CPM=pokemonCPM[c][1];
+										console.log('pokemonCPM',CPM);
+										for(var x=1;x<=15;x++){
+											countHP=(baseStamina+x)*CPM;
+											console.log('countHP',countHP);
+										}
 									}
 								}
 							}
