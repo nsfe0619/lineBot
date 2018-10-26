@@ -58,6 +58,7 @@ function queryIV(pokemon)	 {
 	})
 }
 function queryPokemon(pokemonName,CP,HP,star,callback){
+	var pokemonIVData=[];
 	queryCSV("node_modules/pokemonData/pokemonStarDust.csv",function(pokemonStarDust){
 		queryCSV("node_modules/pokemonData/pokemonCPM.csv",function(pokemonCPM){
 			queryCSV("node_modules/pokemonData/pokemonBaseStat.csv",function(pokemonLib){
@@ -80,20 +81,17 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 										for(var IV_stamina=1;IV_stamina<=15;IV_stamina++){
 											countHP=Math.floor((baseStamina+IV_stamina)*CPM);
 											if(HP==countHP){
-												for(var IV_attack=1;IV_attack<15;IV_attack++){
+												for(var IV_attack=1;IV_attack<=15;IV_attack++){
 
-													for(var IV_defence=1;IV_defence<15;IV_defence++){
+													for(var IV_defence=1;IV_defence<=15;IV_defence++){
 														var countCP=Math.floor((baseAttack + IV_attack) * Math.sqrt(baseDefence + IV_defence) * Math.sqrt(baseStamina + IV_stamina) * (CPM*CPM) / 10 );
 
-															var IV=(IV_stamina+IV_attack+IV_defence)/45*100
-															console.log('countCP',countCP);
-															console.log(pokemonName+' IV:'+IV+ '% IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
+														if(countCP==CP){
+															var IV=Math.floor((IV_stamina+IV_attack+IV_defence)/45*100)
+															pokemonIVData.push({pokemonName:pokemonName,IV:IV,IV_attack:IV_attack,IV_defence,IV_stamina:IV_stamina})
+															//console.log(pokemonName+' IV:'+IV+ '% IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
 															
-														// if(countCP==CP){
-														// 	var IV=Math.floor((IV_stamina+IV_attack+IV_defence)/45*100)
-														// 	console.log(pokemonName+' IV:'+IV+ '% IV_stamina:'+IV_stamina+' IV_attack:'+IV_attack+' IV_defence:'+IV_defence);
-															
-														// }
+														}
 													}
 
 												}
@@ -107,6 +105,7 @@ function queryPokemon(pokemonName,CP,HP,star,callback){
 					}
 
 				}
+				callback(pokemonIVData);
 			})
 		})
 	})
