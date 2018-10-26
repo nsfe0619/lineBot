@@ -52,8 +52,8 @@ function getGentlemanDogArr() {
 //抽紳士狗end
 //查IV start
 
-function queryIV(pokemonName,CP,HP,star)	 {
-	queryPokemon(pokemonName,CP,HP,star,function(pokemonData){
+function queryIV(pokemon)	 {
+	queryPokemon(pokemon[1],pokemon[2],pokemon[3],pokemon[4],function(pokemonData){
 		console.log('pokemonData',pokemonData);
 	})
 }
@@ -144,7 +144,7 @@ bot.on('message', function(event) {
   		var textSplit=event.message.text.split(" ");
   		console.log("textSplit",textSplit);
   		if(textSplit.length>1){
-  			queryIV(textSplit[1]);
+  			queryIV(textSplit);
   		}	
   	}
   }
