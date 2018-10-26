@@ -53,11 +53,13 @@ function getGentlemanDogArr() {
 //查IV start
 
 function queryIV(pokemon)	 {
+		console.log('queryIV');
 	queryPokemon(pokemon[1],pokemon[2],pokemon[3],pokemon[4],function(pokemonData){
 		console.log('pokemonData',pokemonData);
 	})
 }
 function queryPokemon(pokemonName,CP,HP,star,callback){
+		console.log('queryPokemon');
 	queryCSV("node_modules/pokemonData/pokemonStarDust.csv",function(pokemonStarDust){
 		queryCSV("node_modules/pokemonData/pokemonCPM.csv",function(pokemonCPM){
 			queryCSV("node_modules/pokemonData/pokemonBaseStat.csv",function(pokemonLib){
