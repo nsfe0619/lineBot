@@ -60,7 +60,7 @@ function queryIV(pokemon,callback)	 {
 			returnMsg.push(pokemon.pokemonName+' IV:'+pokemon.IV+ '% IV_attack:'+pokemon.IV_attack+' IV_defence:'+pokemon.IV_defence +' IV_stamina:'+pokemon.IV_stamina);
 		}
 	  console.log("queryIV",returnMsg);
-		callback(msgType(returnMsg));
+		callback(returnMsg);
 	})
 }
 function queryPokemon(pokemonName,CP,HP,star,callback){
@@ -193,7 +193,7 @@ bot.on('message', function(event) {
   		if(textSplit.length>4){
   			queryIV(textSplit,function(msg){
   				console.log('msg',msg)
-	    	event.reply(msg).then(function(data) {
+	    	event.reply(msgType(msg).then(function(data) {
 		      // success 
 		      console.log(msg);
 		    }).catch(function(error) {
