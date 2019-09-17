@@ -34,10 +34,11 @@ function getBeautyArr() {
          }, function(error, response, body){
 			var $=cheerio.load(body);
 			// console.log('body',body);
-			console.log('超連結:',$('.r-ent .title a'));
 			$('.r-ent .title a').each(function(i,elem){
 				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 			})
+  	console.log('beautyArr',beautyArr);
+			
     });
 }
 
@@ -86,7 +87,6 @@ bot.on('message', function(event) {
   if (event.message.type = 'text') {
   	if(event.message.text=='吼猴抽表特'){
   	getBeautyArr();
-  	console.log('beautyArr',beautyArr);
   	getImages(beautyArr[parseInt(beautyArr.length*Math.random())],function(img,url){
   		if(img){
 		    var imagesBack=[{
