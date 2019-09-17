@@ -25,7 +25,7 @@ function getBeautyArr() {
 			$('.r-ent .title a').each(function(i,elem){
 				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 			})
-		}
+		});
 	});
 }
 
