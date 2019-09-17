@@ -20,11 +20,10 @@ function getBeautyArr() {
 			            console.log('response',response);
 			            console.log('body',body);
 			    });
-		}else{
-			$('.r-ent .title a').each(function(i,elem){
-				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
-			})
 		}
+		$('.r-ent .title a').each(function(i,elem){
+			beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
+		})
 	});
 }
 
