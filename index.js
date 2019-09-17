@@ -85,7 +85,7 @@ bot.on('message', function(event) {
   if (event.message.type = 'text') {
   	if(event.message.text=='吼猴抽表特'){
   	getBeautyArr();
-  	console.log('beautyArr',beautyArr[]);
+  	console.log('beautyArr',beautyArr);
   	getImages(beautyArr[parseInt(beautyArr.length*Math.random())],function(img,url){
   		if(img){
 		    var imagesBack=[{
