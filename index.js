@@ -7,7 +7,7 @@ var request = require('request');
 //抽表特start
 var beautyArr=[];	
 function getBeautyArr() {
-	var url='https://www.ptt.cc/bbs/Beauty/index'+parseInt(1135*Math.random()+1300)+'.html';
+	var url='https://www.ptt.cc/bbs/Beauty/index'+parseInt(1754*Math.random()+1300)+'.html';
 	// request(url, function (error, response, body) {
 
 	// //console.log('body',body);
@@ -85,6 +85,7 @@ bot.on('message', function(event) {
   if (event.message.type = 'text') {
   	if(event.message.text=='吼猴抽表特'){
   	getBeautyArr();
+  	console.log('beautyArr',beautyArr[]);
   	getImages(beautyArr[parseInt(beautyArr.length*Math.random())],function(img,url){
   		if(img){
 		    var imagesBack=[{
