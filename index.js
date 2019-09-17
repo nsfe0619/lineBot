@@ -10,8 +10,8 @@ function getBeautyArr() {
 	request('https://www.ptt.cc/bbs/Beauty/index'+parseInt(1135*Math.random()+1300)+'.html', function (error, response, body) {
 
 	console.log('body',body);
-		var $=cheerio.load(body);
 	console.log('over18-button-container',$('.over18-button-container'));
+		var $=cheerio.load(body);
 		$('.r-ent .title a').each(function(i,elem){
 			beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 		})
