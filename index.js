@@ -11,10 +11,18 @@ function getBeautyArr() {
 
 	//console.log('body',body);
 		var $=cheerio.load(body);
-	console.log('over18-button-container',$('.over18-button-container'));
-		$('.r-ent .title a').each(function(i,elem){
-			beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
-		})
+		if($('.over18-button-container')){
+			request.post({
+			        url: 'https://www.ptt.cc/ask/over18',
+			         body: "yes=yes"
+			         }, function(error, response, body){
+			            console.log(body);
+			    });
+		}else{
+			$('.r-ent .title a').each(function(i,elem){
+				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
+			})
+		}
 	});
 }
 
