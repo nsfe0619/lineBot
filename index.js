@@ -32,7 +32,11 @@ function getBeautyArr() {
         url: url,
          headers: {"Cookie":"over18=1"}
          }, function(error, response, body){
-            console.log('body',body);
+			var $=cheerio.load(body);
+			// console.log('body',body);
+			$('.r-ent .title a').each(function(i,elem){
+				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
+			})
     });
 }
 
