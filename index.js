@@ -34,6 +34,7 @@ function getBeautyArr() {
          }, function(error, response, body){
 			var $=cheerio.load(body);
 			// console.log('body',body);
+			console.log('超連結:',$('.r-ent .title a'));
 			$('.r-ent .title a').each(function(i,elem){
 				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 			})
