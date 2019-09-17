@@ -16,8 +16,6 @@ function getBeautyArr() {
 			        url: 'https://www.ptt.cc/ask/over18',
 			         body: "yes=yes"
 			         }, function(error, response, body){
-			            console.log('error',error);
-			            console.log('response',response);
 			            console.log('body',body);
 			    });
 		}
