@@ -8,26 +8,6 @@ var request = require('request');
 var beautyArr=[];	
 function getBeautyArr() {
 	var url='https://www.ptt.cc/bbs/Beauty/index'+parseInt(1754*Math.random()+1300)+'.html';
-	// request(url, function (error, response, body) {
-
-	// //console.log('body',body);
-	// 	var $=cheerio.load(body);
-	// 	if($('.over18-button-container')){
-	// 		request.post({
-	// 		        url: 'https://www.ptt.cc/ask/over18',
-	// 		         body: "yes=yes"
-	// 		         }, function(error, response, body){
-	// 		            console.log('body',body);
-	// 		    });
-	// 	}
-	// 	request(url, function (error, response, body) {
-	// 		var $=cheerio.load(body);
-	// 		console.log('body',body);
-	// 		$('.r-ent .title a').each(function(i,elem){
-	// 			beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
-	// 		})
-	// 	});
-	// });
 	request.post({
         url: url,
          headers: {"Cookie":"over18=1"}
@@ -37,30 +17,31 @@ function getBeautyArr() {
 			$('.r-ent .title a').each(function(i,elem){
 				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 			})
-  	console.log('beautyArr',beautyArr);
-			
+
     });
 }
 
 function getImages(post,callback) {
-  request('https://www.ptt.cc' + post, (err, res, body) => {
-	console.log('bodyImg',body);
-	var imgArr=[];	
-	if(body){	
-	  	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
-	  	var randomImgArr=images;
-	  	if(randomImgArr){
-		  	var tmpRandomImg=randomImgArr[parseInt(randomImgArr.length*Math.random())];
+	request.post({
+        url: 'https://www.ptt.cc' + post,
+         headers: {"Cookie":"over18=1"}
+         }, function(error, response, body){
+		var imgArr=[];	
+		if(body){	
+		  	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
+		  	var randomImgArr=images;
+		  	if(randomImgArr){
+			  	var tmpRandomImg=randomImgArr[parseInt(randomImgArr.length*Math.random())];
 
-		  	callback(tmpRandomImg,post);
-	  	}else{
-	  		callback(false,post);
-	  	}
-	}else{
-	  		callback(false,post);
-	 }
+			  	callback(tmpRandomImg,post);
+		  	}else{
+		  		callback(false,post);
+		  	}
+		}else{
+		  		callback(false,post);
+	 	}
 
-  });
+    });
 }
 //抽表特end
 //抽紳士狗start
