@@ -7,9 +7,9 @@ var request = require('request');
 //抽表特start
 var beautyArr=[];	
 function getBeautyArr() {
-	console.log('beautyArr');
 	request('https://www.ptt.cc/bbs/Beauty/index'+parseInt(1135*Math.random()+1300)+'.html', function (error, response, body) {
 
+	console.log('body',body);
 		var $=cheerio.load(body);
 		$('.r-ent .title a').each(function(i,elem){
 			beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
@@ -19,6 +19,7 @@ function getBeautyArr() {
 
 function getImages(post,callback) {
   request('https://www.ptt.cc' + post, (err, res, body) => {
+	console.log('bodyImg',body);
 	var imgArr=[];	
 	if(body){	
 	  	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
