@@ -11,6 +11,7 @@ function getBeautyArr() {
 
 	console.log('body',body);
 		var $=cheerio.load(body);
+	console.log('over18-button-container',$('.over18-button-container'));
 		$('.r-ent .title a').each(function(i,elem){
 			beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 		})
