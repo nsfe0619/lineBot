@@ -8,26 +8,32 @@ var request = require('request');
 var beautyArr=[];	
 function getBeautyArr() {
 	var url='https://www.ptt.cc/bbs/Beauty/index'+parseInt(1135*Math.random()+1300)+'.html';
-	request(url, function (error, response, body) {
+	// request(url, function (error, response, body) {
 
-	//console.log('body',body);
-		var $=cheerio.load(body);
-		if($('.over18-button-container')){
-			request.post({
-			        url: 'https://www.ptt.cc/ask/over18',
-			         body: "yes=yes"
-			         }, function(error, response, body){
-			            console.log('body',body);
-			    });
-		}
-		request(url, function (error, response, body) {
-			var $=cheerio.load(body);
-			console.log('body',body);
-			$('.r-ent .title a').each(function(i,elem){
-				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
-			})
-		});
-	});
+	// //console.log('body',body);
+	// 	var $=cheerio.load(body);
+	// 	if($('.over18-button-container')){
+	// 		request.post({
+	// 		        url: 'https://www.ptt.cc/ask/over18',
+	// 		         body: "yes=yes"
+	// 		         }, function(error, response, body){
+	// 		            console.log('body',body);
+	// 		    });
+	// 	}
+	// 	request(url, function (error, response, body) {
+	// 		var $=cheerio.load(body);
+	// 		console.log('body',body);
+	// 		$('.r-ent .title a').each(function(i,elem){
+	// 			beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
+	// 		})
+	// 	});
+	// });
+	request.post({
+        url: url,
+         headers: {"Cookie":"over18=1"}
+         }, function(error, response, body){
+            console.log('body',body);
+    });
 }
 
 function getImages(post,callback) {
