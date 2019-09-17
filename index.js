@@ -7,7 +7,8 @@ var request = require('request');
 //抽表特start
 var beautyArr=[];	
 function getBeautyArr() {
-	request('https://www.ptt.cc/bbs/Beauty/index'+parseInt(1135*Math.random()+1300)+'.html', function (error, response, body) {
+	var url='https://www.ptt.cc/bbs/Beauty/index'+parseInt(1135*Math.random()+1300)+'.html';
+	request(url, function (error, response, body) {
 
 	//console.log('body',body);
 		var $=cheerio.load(body);
@@ -19,9 +20,12 @@ function getBeautyArr() {
 			            console.log('body',body);
 			    });
 		}
-		$('.r-ent .title a').each(function(i,elem){
-			beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
-		})
+		request(url, function (error, response, body) {
+			var $=cheerio.load(body);
+			$('.r-ent .title a').each(function(i,elem){
+				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
+			})
+		}
 	});
 }
 
