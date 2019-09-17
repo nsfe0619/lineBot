@@ -7,6 +7,7 @@ var request = require('request');
 //抽表特start
 var beautyArr=[];	
 function getBeautyArr() {
+	console.log('beautyArr');
 	request('https://www.ptt.cc/bbs/Beauty/index'+parseInt(1135*Math.random()+1300)+'.html', function (error, response, body) {
 
 		var $=cheerio.load(body);
