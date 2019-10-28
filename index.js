@@ -16,7 +16,7 @@ function getBeautyArr() {
 			var $=cheerio.load(body);
 			// console.log('body',body);
 			$('.r-ent .title a').each(function(i,elem){
-				console.log('href',$('.r-ent .title a').eq(i).attr('href');
+				console.log('href',$('.r-ent .title a').eq(i).attr('href'));
 				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 			})
 
