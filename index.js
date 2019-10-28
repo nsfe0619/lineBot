@@ -14,7 +14,7 @@ function getBeautyArr() {
          headers: {"Cookie":"over18=1"}
          }, function(error, response, body){
 			var $=cheerio.load(body);
-			 console.log('body',body);
+			// console.log('body',body);
 			$('.r-ent .title a').each(function(i,elem){
 				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 			})
@@ -29,7 +29,8 @@ function getImages(post,callback) {
          }, function(error, response, body){
 		var imgArr=[];	
 		if(body){	
-		  	var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
+			  var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
+			  console.log('images',images)
 		  	var randomImgArr=images;
 		  	if(randomImgArr){
 			  	var tmpRandomImg=randomImgArr[parseInt(randomImgArr.length*Math.random())];
