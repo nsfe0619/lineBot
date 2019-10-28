@@ -15,6 +15,7 @@ function getBeautyArr() {
          }, function(error, response, body){
 			var $=cheerio.load(body);
 			// console.log('body',body);
+			  console.log('title a',$('.r-ent .title a'))
 			$('.r-ent .title a').each(function(i,elem){
 				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 			})
@@ -30,7 +31,6 @@ function getImages(post,callback) {
 		var imgArr=[];	
 		if(body){	
 			  var images = body.match(/imgur.com\/[0-9a-zA-Z]{7}/g);
-			  console.log('images',images)
 		  	var randomImgArr=images;
 		  	if(randomImgArr){
 			  	var tmpRandomImg=randomImgArr[parseInt(randomImgArr.length*Math.random())];
