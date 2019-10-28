@@ -14,7 +14,6 @@ function getBeautyArr(callback) {
          headers: {"Cookie":"over18=1"}
          }, function(error, response, body){
 			var $=cheerio.load(body);
-			// console.log('body',body);
 			$('.r-ent .title a').each(function(i,elem){
 				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 			})
@@ -53,7 +52,6 @@ function getGentlemanDogArr() {
 
 		var $=cheerio.load(body);
 		$('.outDIV a').each(function(i,elem){
-			console.log('outDiv',$('.outDIV a'));
 			beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 		})
 	});
@@ -70,7 +68,6 @@ bot.on('message', function(event) {
   if (event.message.type = 'text') {
   	if(event.message.text=='吼猴抽表特'){
   	getBeautyArr(function(tmpArr){
-		console.log('tmpArr',tmpArr);
 		getImages(tmpArr[parseInt(tmpArr.length*Math.random())],function(img,url){
 			if(img){
 			  var imagesBack=[{
