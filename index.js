@@ -53,7 +53,7 @@ function getGentlemanDogArr() {
 		var $=cheerio.load(body);
 		$('.outDIV a').each(function(i,elem){
 			console.log('outDiv',$('.outDIV a'));
-			//beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
+			beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 		})
 	});
 }
