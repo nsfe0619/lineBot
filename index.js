@@ -7,7 +7,7 @@ var request = require('request');
 
 //抽表特start
 var beautyArr=[];	
-function getBeautyArr() {
+function getBeautyArr(callback) {
 	var url='https://www.ptt.cc/bbs/Beauty/index'+parseInt(1754*Math.random()+1300)+'.html';
 	request.post({
         url: url,
@@ -18,7 +18,7 @@ function getBeautyArr() {
 			$('.r-ent .title a').each(function(i,elem){
 				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 			})
-			console.log('beautyArr',beautyArr);
+			callback(beautyArr);
 
     });
 }
@@ -69,42 +69,44 @@ var bot = linebot({
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
   	if(event.message.text=='吼猴抽表特'){
-  	getBeautyArr();
-	  console.log('beautyArr',beautyArr);
-  	getImages(beautyArr[parseInt(beautyArr.length*Math.random())],function(img,url){
-  		if(img){
-		    var imagesBack=[{
-			    "type": "image",
-			    "originalContentUrl": "https://"+img+".jpg",
-			    "previewImageUrl": "https://"+img+".jpg"
-			},{
-				"type":"text",
-				"text":'https://www.ptt.cc'+url
-				}]
-		    event.reply(imagesBack).then(function(data) {
-		      // success 
-		      console.log(imagesBack);
-		    }).catch(function(error) {
-		      // error 
-		      console.log('error');
-		    });
-	    }else{
-		    var msg=[{
-				"type":"text",
-				"text":'沒抽到妹子QQ 請重抽'
-			},{
-				"type":"text",
-				"text":'https://www.ptt.cc'+url
-				}]
-	    	event.reply(msg).then(function(data) {
-		      // success 
-		      console.log(msg);
-		    }).catch(function(error) {
-		      // error 
-		      console.log('error');
-		    });
-	    }
-  	});
+  	getBeautyArr(function(tmpArr){
+		console.log('tmpArr',tmpArr);
+		getImages(tmpArr[parseInt(tmpArr.length*Math.random())],function(img,url){
+			if(img){
+			  var imagesBack=[{
+				  "type": "image",
+				  "originalContentUrl": "https://"+img+".jpg",
+				  "previewImageUrl": "https://"+img+".jpg"
+			  },{
+				  "type":"text",
+				  "text":'https://www.ptt.cc'+url
+				  }]
+			  event.reply(imagesBack).then(function(data) {
+				// success 
+				console.log(imagesBack);
+			  }).catch(function(error) {
+				// error 
+				console.log('error');
+			  });
+		  }else{
+			  var msg=[{
+				  "type":"text",
+				  "text":'沒抽到妹子QQ 請重抽'
+			  },{
+				  "type":"text",
+				  "text":'https://www.ptt.cc'+url
+				  }]
+			  event.reply(msg).then(function(data) {
+				// success 
+				console.log(msg);
+			  }).catch(function(error) {
+				// error 
+				console.log('error');
+			  });
+		  }
+		});
+
+	  });
   	}else if(event.message.text=='吼猴抽紳士狗'){
   		getGentlemanDogArr();
   	}
