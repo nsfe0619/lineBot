@@ -1,7 +1,6 @@
 {
   "name": "linechat",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "callback": "0.0.1",
@@ -24,5 +23,6 @@
   "bugs": {
     "url": "https://github.com/nsfe0619/lineBot/issues"
   },
-  "homepage": "https://github.com/nsfe0619/lineBot#readme"
+  "homepage": "https://github.com/nsfe0619/lineBot#readme",
+  "description": ""
 }
