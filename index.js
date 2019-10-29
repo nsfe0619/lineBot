@@ -1,4 +1,5 @@
 
+const rp = require('request-promise');
 var linebot = require('linebot');
 var express = require('express');
 
@@ -18,7 +19,6 @@ function getBeautyArr(callback) {
 				beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
 			})
 			callback(beautyArr);
-
     });
 }
 
