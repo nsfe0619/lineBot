@@ -45,19 +45,6 @@ function getImages(post,callback) {
     });
 }
 //抽表特end
-//抽紳士狗start
-var gentlemanDogArr=[];	
-function getGentlemanDogArr() {
-	request('https://xn--zqs261djkh.com/', function (error, response, body) {
-
-		var $=cheerio.load(body);
-		$('.outDIV a').each(function(i,elem){
-			beautyArr.push($('.r-ent .title a').eq(i).attr('href'));
-		})
-	});
-}
-
-//抽紳士狗end
 
 var bot = linebot({
   channelId: 1565375319,
@@ -104,8 +91,6 @@ bot.on('message', function(event) {
 		});
 
 	  });
-  	}else if(event.message.text=='吼猴抽紳士狗'){
-  		getGentlemanDogArr();
   	}
   	/*console.log('randomImg',randomImg);
     var msg = event.message.text;
