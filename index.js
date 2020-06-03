@@ -116,20 +116,6 @@ bot.on("message", function (event) {
         });
       });
     }
-    /*console.log('randomImg',randomImg);
-    var msg = event.message.text;
-    var imagesBack={
-	    "type": "image",
-	    "originalContentUrl": "https://"+randomImg,
-	    "previewImageUrl": "https://"+randomImg
-	}
-    event.reply(imagesBack).then(function(data) {
-      // success 
-      console.log(imagesBack);
-    }).catch(function(error) {
-      // error 
-      console.log('error');
-    });*/
   }
 });
 
